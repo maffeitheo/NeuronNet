@@ -1,0 +1,227 @@
+\hypertarget{globals_8h}{}\section{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/globals.h File Reference}
+\label{globals_8h}\index{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/globals.\+h@{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/globals.\+h}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classSimulError}{Simul\+Error}
+\item 
+class \hyperlink{classTCLAP__ERROR}{T\+C\+L\+A\+P\+\_\+\+E\+R\+R\+OR}
+\begin{DoxyCompactList}\small\item\em {\itshape Specific error codes} \end{DoxyCompactList}\item 
+class \hyperlink{classOUTPUT__ERROR}{O\+U\+T\+P\+U\+T\+\_\+\+E\+R\+R\+OR}
+\item 
+class \hyperlink{classCFILE__ERROR}{C\+F\+I\+L\+E\+\_\+\+E\+R\+R\+OR}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{globals_8h_a9acbb7768cf11ccc612674f266a9182b}{\+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+}(\+\_\+N,  \+\_\+id)
+\item 
+\#define \hyperlink{globals_8h_a9acff32baef7c1401d1e2166b0d999c2}{\+\_\+\+S\+I\+Z\+E\+\_\+}~100
+\item 
+\#define \hyperlink{globals_8h_afd5f7c089a6bddd276552473544f977b}{\+\_\+\+T\+I\+M\+E\+\_\+}~10
+\item 
+\#define \hyperlink{globals_8h_a3c5c899006fad97c90bca66b048c0d70}{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+}~4
+\item 
+\#define \hyperlink{globals_8h_ab582a09d695a9c431d8a1c7a0542c086}{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+}~.\+25
+\item 
+\#define \hyperlink{globals_8h_a4b57d5977068ad6d3ba5e97802c57410}{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+}~5
+\item 
+\#define \hyperlink{globals_8h_a44d0be2c42bc40fe1d6d0006ed762f6d}{\+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+}~0.\+2
+\item 
+\#define \hyperlink{globals_8h_a4105fbbc586623b6fcce28eec8417c29}{\+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+}~30
+\item 
+\#define \hyperlink{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}{\+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+}~-\/65.\+0
+\item 
+\#define \hyperlink{globals_8h_a6ed83a2720f26c982b486bcd7398bda4}{\+\_\+\+A\+V\+A\+R\+\_\+}~.\+8
+\item 
+\#define \hyperlink{globals_8h_afeb27810410b4ad253c0cc446b56cbfd}{\+\_\+\+B\+V\+A\+R\+\_\+}~.\+25
+\item 
+\#define \hyperlink{globals_8h_a6f19bdc067b5267c5f96db47062fef17}{\+\_\+\+C\+V\+A\+R\+\_\+}~0.\+2307692
+\item 
+\#define \hyperlink{globals_8h_ab562b7e46b970a109c23f7e3eaa10bf2}{\+\_\+\+D\+V\+A\+R\+\_\+}~.\+75
+\item 
+\#define \hyperlink{globals_8h_a956c975dbd329dd2c44bf0707ec87928}{\+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Simulation of the Izhikevich neuron model\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_a7fb73d75d8e6fe521bc287693f96dea2}{\+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Number of time-\/steps\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_ad6ed0803f0ba1dad283a5f8d223d0771}{\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Number of neurons\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_a974f4a347352636e3eff38fc6ed15f4e}{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Average connectivity between neurons\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_a6bb927b9932f49394eb6d0195160f6f8}{\+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Proportion of inhibitory (FS) neurons, the complement will be RS neurons\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_a5794ab1a7f457a36aa21f5313bf6d4d9}{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Average link strength for excitatory neurons (inhibitory is the double)\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_a80eb37fbfc12b802cd576a7c270341a5}{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Std deviation of thalamic input \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise}\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_a4ff03ef95ba5d9b77316765cba4510a9}{\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Proportions of each type of neurons as a list like \textquotesingle{}I\+B\+:0.\+4,C\+H\+:0.\+35\textquotesingle{}. If total is less than 1, it will be completed with RS neurons\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_ab48fc9989ecb631747042d17b5cb0057}{\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Output file name (default is output to screen)\char`\"{}
+\item 
+\#define \hyperlink{globals_8h_aba0c47a7a3365cac4542d0d4ffb5d165}{\+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+}~\char`\"{}Configuration file name\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{globals_8h_a6ed83a2720f26c982b486bcd7398bda4}\label{globals_8h_a6ed83a2720f26c982b486bcd7398bda4}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+A\+V\+A\+R\+\_\+@{\+\_\+\+A\+V\+A\+R\+\_\+}}
+\index{\+\_\+\+A\+V\+A\+R\+\_\+@{\+\_\+\+A\+V\+A\+R\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+A\+V\+A\+R\+\_\+}{\_AVAR\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+A\+V\+A\+R\+\_\+~.\+8}
+
+\mbox{\Hypertarget{globals_8h_afeb27810410b4ad253c0cc446b56cbfd}\label{globals_8h_afeb27810410b4ad253c0cc446b56cbfd}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+B\+V\+A\+R\+\_\+@{\+\_\+\+B\+V\+A\+R\+\_\+}}
+\index{\+\_\+\+B\+V\+A\+R\+\_\+@{\+\_\+\+B\+V\+A\+R\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+V\+A\+R\+\_\+}{\_BVAR\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+B\+V\+A\+R\+\_\+~.\+25}
+
+\mbox{\Hypertarget{globals_8h_aba0c47a7a3365cac4542d0d4ffb5d165}\label{globals_8h_aba0c47a7a3365cac4542d0d4ffb5d165}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+}{\_CFILE\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+C\+F\+I\+L\+E\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Configuration file name\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_a6f19bdc067b5267c5f96db47062fef17}\label{globals_8h_a6f19bdc067b5267c5f96db47062fef17}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+C\+V\+A\+R\+\_\+@{\+\_\+\+C\+V\+A\+R\+\_\+}}
+\index{\+\_\+\+C\+V\+A\+R\+\_\+@{\+\_\+\+C\+V\+A\+R\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+C\+V\+A\+R\+\_\+}{\_CVAR\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+C\+V\+A\+R\+\_\+~0.\+2307692}
+
+\mbox{\Hypertarget{globals_8h_a3c5c899006fad97c90bca66b048c0d70}\label{globals_8h_a3c5c899006fad97c90bca66b048c0d70}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+@{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+}}
+\index{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+@{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+}{\_DEGREE\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+D\+E\+G\+R\+E\+E\+\_\+~4}
+
+\mbox{\Hypertarget{globals_8h_a974f4a347352636e3eff38fc6ed15f4e}\label{globals_8h_a974f4a347352636e3eff38fc6ed15f4e}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+}{\_DEGREE\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Average connectivity between neurons\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_ab562b7e46b970a109c23f7e3eaa10bf2}\label{globals_8h_ab562b7e46b970a109c23f7e3eaa10bf2}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+D\+V\+A\+R\+\_\+@{\+\_\+\+D\+V\+A\+R\+\_\+}}
+\index{\+\_\+\+D\+V\+A\+R\+\_\+@{\+\_\+\+D\+V\+A\+R\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+D\+V\+A\+R\+\_\+}{\_DVAR\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+D\+V\+A\+R\+\_\+~.\+75}
+
+\mbox{\Hypertarget{globals_8h_a4105fbbc586623b6fcce28eec8417c29}\label{globals_8h_a4105fbbc586623b6fcce28eec8417c29}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+@{\+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+}}
+\index{\+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+@{\+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+}{\_FIRING\_TH\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+F\+I\+R\+I\+N\+G\+\_\+\+T\+H\+\_\+~30}
+
+\mbox{\Hypertarget{globals_8h_a6bb927b9932f49394eb6d0195160f6f8}\label{globals_8h_a6bb927b9932f49394eb6d0195160f6f8}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+}{\_INHIB\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+I\+N\+H\+I\+B\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Proportion of inhibitory (FS) neurons, the complement will be RS neurons\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_ab48fc9989ecb631747042d17b5cb0057}\label{globals_8h_ab48fc9989ecb631747042d17b5cb0057}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+}{\_OUTPUT\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Output file name (default is output to screen)\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_a956c975dbd329dd2c44bf0707ec87928}\label{globals_8h_a956c975dbd329dd2c44bf0707ec87928}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+}{\_PRGRM\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+P\+R\+G\+R\+M\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Simulation of the Izhikevich neuron model\char`\"{}}
+
+
+\begin{DoxyItemize}
+\item text messages $\ast$ 
+\end{DoxyItemize}\mbox{\Hypertarget{globals_8h_a44d0be2c42bc40fe1d6d0006ed762f6d}\label{globals_8h_a44d0be2c42bc40fe1d6d0006ed762f6d}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+@{\+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+}}
+\index{\+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+@{\+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+}{\_PROP\_INHIB\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+P\+R\+O\+P\+\_\+\+I\+N\+H\+I\+B\+\_\+~0.\+2}
+
+\mbox{\Hypertarget{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}\label{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+@{\+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+}}
+\index{\+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+@{\+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+}{\_REST\_VAL\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+R\+E\+S\+T\+\_\+\+V\+A\+L\+\_\+~-\/65.\+0}
+
+\mbox{\Hypertarget{globals_8h_a9acbb7768cf11ccc612674f266a9182b}\label{globals_8h_a9acbb7768cf11ccc612674f266a9182b}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+@{\+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+}}
+\index{\+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+@{\+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+}{\_SIMULERR\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+I\+M\+U\+L\+E\+R\+R\+\_\+(\begin{DoxyParamCaption}\item[{}]{\+\_\+N,  }\item[{}]{\+\_\+id }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_N : \textcolor{keyword}{public} \hyperlink{classSimulError}{SimulError} \{ \(\backslash\)
+    public: \_N(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *c) : \hyperlink{classSimulError}{SimulError}(c,\_id) \{\} \(\backslash\)
+            \_N(\textcolor{keyword}{const} std::string &s) : \hyperlink{classSimulError}{SimulError}(s,\_id) \{\} \};
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_a9acff32baef7c1401d1e2166b0d999c2}\label{globals_8h_a9acff32baef7c1401d1e2166b0d999c2}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+S\+I\+Z\+E\+\_\+@{\+\_\+\+S\+I\+Z\+E\+\_\+}}
+\index{\+\_\+\+S\+I\+Z\+E\+\_\+@{\+\_\+\+S\+I\+Z\+E\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+I\+Z\+E\+\_\+}{\_SIZE\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+I\+Z\+E\+\_\+~100}
+
+
+\begin{DoxyItemize}
+\item hard-\/coded constants $\ast$
+\item default parameter values $\ast$ 
+\end{DoxyItemize}\mbox{\Hypertarget{globals_8h_ad6ed0803f0ba1dad283a5f8d223d0771}\label{globals_8h_ad6ed0803f0ba1dad283a5f8d223d0771}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+}{\_SIZE\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+I\+Z\+E\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Number of neurons\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_ab582a09d695a9c431d8a1c7a0542c086}\label{globals_8h_ab582a09d695a9c431d8a1c7a0542c086}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+@{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+}}
+\index{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+@{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+}{\_STRENG\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+R\+E\+N\+G\+\_\+~.\+25}
+
+\mbox{\Hypertarget{globals_8h_a5794ab1a7f457a36aa21f5313bf6d4d9}\label{globals_8h_a5794ab1a7f457a36aa21f5313bf6d4d9}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+}{\_STRENG\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+S\+T\+R\+E\+N\+G\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Average link strength for excitatory neurons (inhibitory is the double)\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_a4b57d5977068ad6d3ba5e97802c57410}\label{globals_8h_a4b57d5977068ad6d3ba5e97802c57410}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+@{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+}}
+\index{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+@{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+}{\_THALAM\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+T\+H\+A\+L\+A\+M\+\_\+~5}
+
+\mbox{\Hypertarget{globals_8h_a80eb37fbfc12b802cd576a7c270341a5}\label{globals_8h_a80eb37fbfc12b802cd576a7c270341a5}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+}{\_THALAM\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+T\+H\+A\+L\+A\+M\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Std deviation of thalamic input \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise}\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_afd5f7c089a6bddd276552473544f977b}\label{globals_8h_afd5f7c089a6bddd276552473544f977b}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+T\+I\+M\+E\+\_\+@{\+\_\+\+T\+I\+M\+E\+\_\+}}
+\index{\+\_\+\+T\+I\+M\+E\+\_\+@{\+\_\+\+T\+I\+M\+E\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+T\+I\+M\+E\+\_\+}{\_TIME\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+T\+I\+M\+E\+\_\+~10}
+
+\mbox{\Hypertarget{globals_8h_a7fb73d75d8e6fe521bc287693f96dea2}\label{globals_8h_a7fb73d75d8e6fe521bc287693f96dea2}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+}{\_TIME\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+T\+I\+M\+E\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Number of time-\/steps\char`\"{}}
+
+\mbox{\Hypertarget{globals_8h_a4ff03ef95ba5d9b77316765cba4510a9}\label{globals_8h_a4ff03ef95ba5d9b77316765cba4510a9}} 
+\index{globals.\+h@{globals.\+h}!\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+}}
+\index{\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+@{\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+}!globals.\+h@{globals.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+}{\_TYPES\_TEXT\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+T\+Y\+P\+E\+S\+\_\+\+T\+E\+X\+T\+\_\+~\char`\"{}Proportions of each type of neurons as a list like \textquotesingle{}I\+B\+:0.\+4,C\+H\+:0.\+35\textquotesingle{}. If total is less than 1, it will be completed with RS neurons\char`\"{}}
+

@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g -W -Wall -Wextra  -rdynamic CMakeFiles/testNeuronNet.dir/src/test_main.cpp.o  -o testNeuronNet  -L/home/maffei/myfiles/Programmation/serie05/NeuronNet/lib -Wl,-rpath,/home/maffei/myfiles/Programmation/serie05/NeuronNet/lib -Wl,-Bstatic -lgtest -lgtest_main -Wl,-Bdynamic -lpthread 

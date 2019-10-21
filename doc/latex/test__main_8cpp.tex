@@ -1,0 +1,219 @@
+\hypertarget{test__main_8cpp}{}\section{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/test\+\_\+main.cpp File Reference}
+\label{test__main_8cpp}\index{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/test\+\_\+main.\+cpp@{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/test\+\_\+main.\+cpp}}
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}random.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}simulation.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{test__main_8cpp_a51892f8459fe423628c5a6cabe6081eb}{T\+E\+ST} (simulation\+Test, parse)
+\item 
+\hyperlink{test__main_8cpp_a85ac65638135ce484159788a12cdf7d5}{T\+E\+ST} (neuron\+Test, initialize)
+\item 
+\hyperlink{test__main_8cpp_ab599ea33a897500048099b37ae1400cc}{T\+E\+ST} (neuron\+Test, step)
+\item 
+\hyperlink{test__main_8cpp_af32f07d63a883bb28d92d329ca594d9c}{T\+E\+ST} (network\+Test, initialize)
+\item 
+\hyperlink{test__main_8cpp_a60cf0188b55bbf8443b4fadca4c93fb3}{T\+E\+ST} (network\+Test, connect)
+\item 
+int \hyperlink{test__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRandomNumbers}{Random\+Numbers} $\ast$ \hyperlink{test__main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\+\_\+\+R\+NG} = new \hyperlink{classRandomNumbers}{Random\+Numbers}(101301091)
+\item 
+\hyperlink{classNetwork}{Network} \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}
+\item 
+\hyperlink{classNeuron}{Neuron} \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}
+\item 
+\hyperlink{classNeuron}{Neuron} \hyperlink{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}{n2}
+\item 
+size\+\_\+t \hyperlink{test__main_8cpp_aa5d545783a07d735d02f05594156054c}{nlinks} = 1000
+\item 
+double \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise} = 10.
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{test__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{test__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!main@{main}}
+\index{main@{main}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+100                                 \{
+101     ::testing::InitGoogleTest(&argc, argv);
+102     \textcolor{keywordflow}{return} RUN\_ALL\_TESTS();
+103 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{test__main_8cpp_a51892f8459fe423628c5a6cabe6081eb}\label{test__main_8cpp_a51892f8459fe423628c5a6cabe6081eb}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{simulation\+Test}]{,  }\item[{parse}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+12                             \{
+13     \hyperlink{classSimulation}{Simulation} s1(10, 1);
+14     s1.parse\_types(\textcolor{stringliteral}{""});
+15     EXPECT\_EQ(2, s1.size\_type(\textcolor{stringliteral}{"FS"}));
+16     EXPECT\_EQ(8, s1.size\_type(\textcolor{stringliteral}{"RS"}));
+17     EXPECT\_EQ(0, s1.size\_type(\textcolor{stringliteral}{"XX"}));
+18     s1.parse\_types(\textcolor{stringliteral}{"IB:0.5, CH:0.2,TC:0.1"});
+19     EXPECT\_EQ(2, s1.size\_type(\textcolor{stringliteral}{"RS"}));    
+20     EXPECT\_EQ(2, s1.size\_type(\textcolor{stringliteral}{"CH"}));
+21     EXPECT\_EQ(5, s1.size\_type(\textcolor{stringliteral}{"IB"}));
+22 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{test__main_8cpp_a85ac65638135ce484159788a12cdf7d5}\label{test__main_8cpp_a85ac65638135ce484159788a12cdf7d5}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{neuron\+Test}]{,  }\item[{initialize}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+24                              \{
+25     \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a0759d03a357708ee4174f1bbb2b0b8d7}{set\_default\_params}(\textcolor{stringliteral}{"RS"});
+26     \hyperlink{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}{n2}.\hyperlink{classNeuron_a0759d03a357708ee4174f1bbb2b0b8d7}{set\_default\_params}(\textcolor{stringliteral}{"FS"});
+27     EXPECT\_FALSE(\hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}{is\_inhibitory}());
+28     EXPECT\_TRUE(\hyperlink{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}{n2}.\hyperlink{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}{is\_inhibitory}());
+29     EXPECT\_TRUE(\hyperlink{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}{n2}.\hyperlink{classNeuron_a37459ba1dc4b0060707c33bf2ad5b10d}{is\_type}(\textcolor{stringliteral}{"FS"}));
+30     EXPECT\_FALSE(\hyperlink{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}{n2}.\hyperlink{classNeuron_a37459ba1dc4b0060707c33bf2ad5b10d}{is\_type}(\textcolor{stringliteral}{"RS"}));
+31     EXPECT\_EQ(\textcolor{stringliteral}{"RS\(\backslash\)t0.02\(\backslash\)t0.2\(\backslash\)t-65\(\backslash\)t8\(\backslash\)t0"}, \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a24dc0979745c7e25cfa997d88d973896}{formatted\_params}());
+32     EXPECT\_EQ(\textcolor{stringliteral}{"FS\(\backslash\)t0.1\(\backslash\)t0.2\(\backslash\)t-65\(\backslash\)t2\(\backslash\)t1"},  \hyperlink{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}{n2}.\hyperlink{classNeuron_a24dc0979745c7e25cfa997d88d973896}{formatted\_params}());
+33 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{test__main_8cpp_ab599ea33a897500048099b37ae1400cc}\label{test__main_8cpp_ab599ea33a897500048099b37ae1400cc}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{neuron\+Test}]{,  }\item[{step}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+35                        \{
+36     \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}{input}(10.0);
+37     \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a224d5cead5f94bbe15ae49774db3e174}{step}();
+38     EXPECT\_NEAR(-58.105, \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a47ea1a8f25dd62a34c9e0bdc0b7ae7fb}{potential}(), 1e-4);
+39     EXPECT\_NEAR(-12.9724, \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a2e84bc427827092295070dec404886f4}{recovery}(), 1e-4);
+40     EXPECT\_FALSE(\hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}{firing}());
+41     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} n=0; n<3; n++) \{
+42         \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}{input}(10.0);
+43         \hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a224d5cead5f94bbe15ae49774db3e174}{step}();
+44     \}
+45     EXPECT\_TRUE(\hyperlink{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}{n1}.\hyperlink{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}{firing}());
+46 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{test__main_8cpp_af32f07d63a883bb28d92d329ca594d9c}\label{test__main_8cpp_af32f07d63a883bb28d92d329ca594d9c}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{network\+Test}]{,  }\item[{initialize}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+48                               \{
+49     \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}{resize}(\hyperlink{test__main_8cpp_aa5d545783a07d735d02f05594156054c}{nlinks});
+50     EXPECT\_EQ(\hyperlink{test__main_8cpp_aa5d545783a07d735d02f05594156054c}{nlinks}, \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}());
+51     \textcolor{keywordtype}{double} mean = 0, sdv = 0;
+52     std::vector<double> allv(\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a2e9dbb815c622cccdd50186ae8c9f4a7}{recoveries}());
+53     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} I : allv) \{
+54         mean += 0.001*I;
+55         sdv  += 0.001*I*I;
+56     \}
+57     sdv -= mean*mean;
+58     sdv = std::sqrt(3*sdv);
+59 \textcolor{comment}{// --- recovery potential is -65 (rest value) X 0.2 (default b) = -13 for excitatory}
+60 \textcolor{comment}{// --- and -13 * (1+\_BVAR\_/2) for inhibitory}
+61     EXPECT\_NEAR(0.2*\hyperlink{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}{\_REST\_VAL\_}*(1+0.1*\hyperlink{globals_8h_afeb27810410b4ad253c0cc446b56cbfd}{\_BVAR\_}), mean, 1e-1);
+62     EXPECT\_NEAR(-0.2*\hyperlink{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}{\_REST\_VAL\_}*\hyperlink{globals_8h_afeb27810410b4ad253c0cc446b56cbfd}{\_BVAR\_}*sqrt(0.194), sdv, 1.5e-1);
+63 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{test__main_8cpp_a60cf0188b55bbf8443b4fadca4c93fb3}\label{test__main_8cpp_a60cf0188b55bbf8443b4fadca4c93fb3}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{T\+E\+S\+T()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily T\+E\+ST (\begin{DoxyParamCaption}\item[{network\+Test}]{,  }\item[{connect}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+65                            \{
+66     \textcolor{keywordtype}{bool} trylink = \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\_link}(0, 0, 10);
+67     EXPECT\_FALSE(trylink);
+68     trylink = \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\_link}(0, \hyperlink{test__main_8cpp_aa5d545783a07d735d02f05594156054c}{nlinks}+1, .5);
+69     EXPECT\_FALSE(trylink);
+70     \textcolor{keywordtype}{size\_t} excit\_idx = 0;
+71     \textcolor{keywordflow}{for} (; excit\_idx<\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}(); excit\_idx++) 
+72         \textcolor{keywordflow}{if} (!\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron}(excit\_idx).\hyperlink{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}{is\_inhibitory}())
+73             \textcolor{keywordflow}{break};
+74     \textcolor{keywordtype}{size\_t} nlink = 3;
+75     \textcolor{keywordtype}{double} stren = 6.;
+76     std::pair<size\_t, double> expec\{nlink, -2*stren*nlink\};
+77 \textcolor{comment}{// --- add 3 links from inhibitors to same excitatory}
+78     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} inhib\_idx=0; inhib\_idx<\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}() && nlink>0; inhib\_idx++) 
+79         \textcolor{keywordflow}{if} ((\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron}(inhib\_idx).\hyperlink{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}{is\_inhibitory}())
+80             && \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\_link}(excit\_idx, inhib\_idx, stren))
+81             nlink--;
+82     EXPECT\_EQ(expec, \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a313da14a6a430ae14e3943dba78edb61}{degree}(excit\_idx));
+83     std::vector<double> noisev(\hyperlink{test__main_8cpp_aa5d545783a07d735d02f05594156054c}{nlinks}, \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise});
+84     \textcolor{keywordtype}{size\_t} inhib1 = \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a98bbf44b077ba1bec5a62ecffc405503}{neighbors}(excit\_idx).front().first;
+85     \textcolor{keywordtype}{int} ifirs(0), efirs(0);
+86 \textcolor{comment}{// --- should fire once within 10 time steps}
+87     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} t=0; t<10; t++) \{
+88         \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}{step}(noisev);
+89         ifirs += (int)\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron}(inhib1).\hyperlink{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}{firing}();
+90         efirs += (int)\hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron}(excit\_idx).\hyperlink{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}{firing}();
+91     \}
+92     EXPECT\_EQ(1, ifirs);
+93     EXPECT\_EQ(1, efirs);
+94 \textcolor{comment}{// --- input to excitatory should be noise}
+95 \textcolor{comment}{// --- input to inhibitory should be .4*noise}
+96     EXPECT\_DOUBLE\_EQ(\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise},    \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron}(excit\_idx).\hyperlink{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}{input}());
+97     EXPECT\_DOUBLE\_EQ(.4*\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise}, \hyperlink{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}{net}.\hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron}(inhib1).\hyperlink{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}{input}());
+98 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{test__main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}\label{test__main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!\+\_\+\+R\+NG@{\+\_\+\+R\+NG}}
+\index{\+\_\+\+R\+NG@{\+\_\+\+R\+NG}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{\+\_\+\+R\+NG}{\_RNG}}
+{\footnotesize\ttfamily \hyperlink{classRandomNumbers}{Random\+Numbers}$\ast$ \+\_\+\+R\+NG = new \hyperlink{classRandomNumbers}{Random\+Numbers}(101301091)}
+
+\mbox{\Hypertarget{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}\label{test__main_8cpp_a6c7ce9a852d58e74a4fd5a5b90fda31b}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!n1@{n1}}
+\index{n1@{n1}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{n1}{n1}}
+{\footnotesize\ttfamily \hyperlink{classNeuron}{Neuron} n1}
+
+\mbox{\Hypertarget{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}\label{test__main_8cpp_a2a7fa920735c881da2017a54633a3659}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!n2@{n2}}
+\index{n2@{n2}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{n2}{n2}}
+{\footnotesize\ttfamily \hyperlink{classNeuron}{Neuron} n2}
+
+\mbox{\Hypertarget{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}\label{test__main_8cpp_a33c67ed81b6fab0e9ac1c67bc3792d16}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!net@{net}}
+\index{net@{net}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{net}{net}}
+{\footnotesize\ttfamily \hyperlink{classNetwork}{Network} net}
+
+\mbox{\Hypertarget{test__main_8cpp_aa5d545783a07d735d02f05594156054c}\label{test__main_8cpp_aa5d545783a07d735d02f05594156054c}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!nlinks@{nlinks}}
+\index{nlinks@{nlinks}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{nlinks}{nlinks}}
+{\footnotesize\ttfamily size\+\_\+t nlinks = 1000}
+
+\mbox{\Hypertarget{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}\label{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}} 
+\index{test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}!noise@{noise}}
+\index{noise@{noise}!test\+\_\+main.\+cpp@{test\+\_\+main.\+cpp}}
+\subsubsection{\texorpdfstring{noise}{noise}}
+{\footnotesize\ttfamily double noise = 10.}
+

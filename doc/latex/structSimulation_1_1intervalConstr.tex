@@ -1,0 +1,58 @@
+\hypertarget{structSimulation_1_1intervalConstr}{}\section{Simulation\+:\+:interval\+Constr Struct Reference}
+\label{structSimulation_1_1intervalConstr}\index{Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}}
+Inheritance diagram for Simulation\+:\+:interval\+Constr\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structSimulation_1_1intervalConstr}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{structSimulation_1_1intervalConstr_a100c7d32a4c1e571e15bbc7463fee2b2}{short\+ID} () const
+\item 
+std\+::string \hyperlink{structSimulation_1_1intervalConstr_acd0d4140e524a5017441f3d10ca9d3bf}{description} () const
+\item 
+bool \hyperlink{structSimulation_1_1intervalConstr_a7c2cbda337f9d4ef3a626019120a2316}{check} (const double \&x) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Constraint function for a T\+C\+L\+AP argument to restrict a double to \mbox{[}0,1\mbox{]}. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structSimulation_1_1intervalConstr_a7c2cbda337f9d4ef3a626019120a2316}\label{structSimulation_1_1intervalConstr_a7c2cbda337f9d4ef3a626019120a2316}} 
+\index{Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}!check@{check}}
+\index{check@{check}!Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}}
+\subsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily bool Simulation\+::interval\+Constr\+::check (\begin{DoxyParamCaption}\item[{const double \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+65 \{\textcolor{keywordflow}{return} (x >= 0) && (x <= 1);\}
+\end{DoxyCode}
+\mbox{\Hypertarget{structSimulation_1_1intervalConstr_acd0d4140e524a5017441f3d10ca9d3bf}\label{structSimulation_1_1intervalConstr_acd0d4140e524a5017441f3d10ca9d3bf}} 
+\index{Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}!description@{description}}
+\index{description@{description}!Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}}
+\subsubsection{\texorpdfstring{description()}{description()}}
+{\footnotesize\ttfamily std\+::string Simulation\+::interval\+Constr\+::description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+64 \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"A number in [0,1]"};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{structSimulation_1_1intervalConstr_a100c7d32a4c1e571e15bbc7463fee2b2}\label{structSimulation_1_1intervalConstr_a100c7d32a4c1e571e15bbc7463fee2b2}} 
+\index{Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}!short\+ID@{short\+ID}}
+\index{short\+ID@{short\+ID}!Simulation\+::interval\+Constr@{Simulation\+::interval\+Constr}}
+\subsubsection{\texorpdfstring{short\+I\+D()}{shortID()}}
+{\footnotesize\ttfamily std\+::string Simulation\+::interval\+Constr\+::short\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+63 \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"[0,1]"};\}
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{simulation_8h}{simulation.\+h}\end{DoxyCompactItemize}

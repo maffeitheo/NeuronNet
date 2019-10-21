@@ -1,0 +1,76 @@
+\hypertarget{classSimulError}{}\section{Simul\+Error Class Reference}
+\label{classSimulError}\index{Simul\+Error@{Simul\+Error}}
+
+
+{\ttfamily \#include $<$globals.\+h$>$}
+
+Inheritance diagram for Simul\+Error\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classSimulError}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimulError_afaa5c6167e80c55fb3814c1bbcb7dcb9}{Simul\+Error} (const char $\ast$c, int v=0)
+\item 
+\hyperlink{classSimulError_a475bd5eab2cafd9c6b72471449dc2576}{Simul\+Error} (const std\+::string \&s, int v=0)
+\item 
+int \hyperlink{classSimulError_a34627c973b586c593d8ed0f7352bc401}{value} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classSimulError_a5cd98a7eddc7982f5c715ef1c76a1bc2}{code}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSimulError_afaa5c6167e80c55fb3814c1bbcb7dcb9}\label{classSimulError_afaa5c6167e80c55fb3814c1bbcb7dcb9}} 
+\index{Simul\+Error@{Simul\+Error}!Simul\+Error@{Simul\+Error}}
+\index{Simul\+Error@{Simul\+Error}!Simul\+Error@{Simul\+Error}}
+\subsubsection{\texorpdfstring{Simul\+Error()}{SimulError()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Simul\+Error\+::\+Simul\+Error (\begin{DoxyParamCaption}\item[{const char $\ast$}]{c,  }\item[{int}]{v = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+19 : std::runtime\_error(c), \hyperlink{classSimulError_a5cd98a7eddc7982f5c715ef1c76a1bc2}{code}(v) \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulError_a475bd5eab2cafd9c6b72471449dc2576}\label{classSimulError_a475bd5eab2cafd9c6b72471449dc2576}} 
+\index{Simul\+Error@{Simul\+Error}!Simul\+Error@{Simul\+Error}}
+\index{Simul\+Error@{Simul\+Error}!Simul\+Error@{Simul\+Error}}
+\subsubsection{\texorpdfstring{Simul\+Error()}{SimulError()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Simul\+Error\+::\+Simul\+Error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{int}]{v = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+20 : std::runtime\_error(s), \hyperlink{classSimulError_a5cd98a7eddc7982f5c715ef1c76a1bc2}{code}(v) \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSimulError_a34627c973b586c593d8ed0f7352bc401}\label{classSimulError_a34627c973b586c593d8ed0f7352bc401}} 
+\index{Simul\+Error@{Simul\+Error}!value@{value}}
+\index{value@{value}!Simul\+Error@{Simul\+Error}}
+\subsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily int Simul\+Error\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+21 \{\textcolor{keywordflow}{return} \hyperlink{classSimulError_a5cd98a7eddc7982f5c715ef1c76a1bc2}{code};\}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classSimulError_a5cd98a7eddc7982f5c715ef1c76a1bc2}\label{classSimulError_a5cd98a7eddc7982f5c715ef1c76a1bc2}} 
+\index{Simul\+Error@{Simul\+Error}!code@{code}}
+\index{code@{code}!Simul\+Error@{Simul\+Error}}
+\subsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily const int Simul\+Error\+::code\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{globals_8h}{globals.\+h}\end{DoxyCompactItemize}

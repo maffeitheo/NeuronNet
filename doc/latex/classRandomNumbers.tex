@@ -1,0 +1,166 @@
+\hypertarget{classRandomNumbers}{}\section{Random\+Numbers Class Reference}
+\label{classRandomNumbers}\index{Random\+Numbers@{Random\+Numbers}}
+
+
+{\ttfamily \#include $<$random.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{Indent}\textbf{ Initializing}\par
+{\em The generator \hyperlink{classRandomNumbers_a15ceee85d6d00de12ae76c90aaec2f14}{rng} is a Mersenne twister {\itshape mt19937} engine.
+
+A seed {\itshape s$>$0} can be provided, by default it is seeded with a {\itshape random\+\_\+device}. }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRandomNumbers_aeceac66b253ad00f58e7b2252f18f609}{Random\+Numbers} (unsigned long int s=0)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Distributions}\par
+{\em These functions either return a single number or fill a given vector with random numbers distributed according the specified distributions.
+
+The additional parameters are the standard parameters of these distributions. }\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classRandomNumbers_ae226c129494f9055ac37ed1af943d010}{uniform\+\_\+double} (std\+::vector$<$ double $>$ \&, double lower=0, double upper=1)
+\item 
+double \hyperlink{classRandomNumbers_a1e66bf9926ad3916f3804dd20ea393f1}{uniform\+\_\+double} (double lower=0, double upper=1)
+\item 
+void \hyperlink{classRandomNumbers_a4ef5917200da65aa267735d389bdf995}{normal} (std\+::vector$<$ double $>$ \&, double mean=0, double sd=1)
+\item 
+double \hyperlink{classRandomNumbers_abbfcbae72e7dbd048567dd5b8e2ce9d2}{normal} (double mean=0, double sd=1)
+\item 
+void \hyperlink{classRandomNumbers_a69e33058b8a923f9597cf13421d5fcd4}{poisson} (std\+::vector$<$ int $>$ \&, double mean=1)
+\item 
+int \hyperlink{classRandomNumbers_ac5bd95dddabde62a74a0d871a66ce2f0}{poisson} (double mean=1)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Auxiliary function}\par
+{\em This takes a vector of indices and re-\/orders it randomly. }\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classRandomNumbers_a851aaa7e46922dc22ce984b21b474a4e}{shuffle} (std\+::vector$<$ size\+\_\+t $>$ \&\+\_\+v)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937 \hyperlink{classRandomNumbers_a15ceee85d6d00de12ae76c90aaec2f14}{rng}
+\item 
+long int \hyperlink{classRandomNumbers_a83c563bc5ca60f2e5c149244b327d948}{seed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a random number class based on standard c++-\/11 generators.
+
+This headers declares the global variable \hyperlink{main_8cpp}{\+\_\+\+R\+NG}, a pointer to the unique instance of this class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRandomNumbers_aeceac66b253ad00f58e7b2252f18f609}\label{classRandomNumbers_aeceac66b253ad00f58e7b2252f18f609}} 
+\index{Random\+Numbers@{Random\+Numbers}!Random\+Numbers@{Random\+Numbers}}
+\index{Random\+Numbers@{Random\+Numbers}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{Random\+Numbers()}{RandomNumbers()}}
+{\footnotesize\ttfamily Random\+Numbers\+::\+Random\+Numbers (\begin{DoxyParamCaption}\item[{unsigned long int}]{s = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classRandomNumbers_a4ef5917200da65aa267735d389bdf995}\label{classRandomNumbers_a4ef5917200da65aa267735d389bdf995}} 
+\index{Random\+Numbers@{Random\+Numbers}!normal@{normal}}
+\index{normal@{normal}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{normal()}{normal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Random\+Numbers\+::normal (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{,  }\item[{double}]{mean = {\ttfamily 0},  }\item[{double}]{sd = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+11                                                                          \{
+12     
+13 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classRandomNumbers_abbfcbae72e7dbd048567dd5b8e2ce9d2}\label{classRandomNumbers_abbfcbae72e7dbd048567dd5b8e2ce9d2}} 
+\index{Random\+Numbers@{Random\+Numbers}!normal@{normal}}
+\index{normal@{normal}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{normal()}{normal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Random\+Numbers\+::normal (\begin{DoxyParamCaption}\item[{double}]{mean = {\ttfamily 0},  }\item[{double}]{sd = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+15                                                        \{
+16     
+17 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classRandomNumbers_a69e33058b8a923f9597cf13421d5fcd4}\label{classRandomNumbers_a69e33058b8a923f9597cf13421d5fcd4}} 
+\index{Random\+Numbers@{Random\+Numbers}!poisson@{poisson}}
+\index{poisson@{poisson}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{poisson()}{poisson()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Random\+Numbers\+::poisson (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{,  }\item[{double}]{mean = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+19                                                           \{
+20     
+21 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classRandomNumbers_ac5bd95dddabde62a74a0d871a66ce2f0}\label{classRandomNumbers_ac5bd95dddabde62a74a0d871a66ce2f0}} 
+\index{Random\+Numbers@{Random\+Numbers}!poisson@{poisson}}
+\index{poisson@{poisson}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{poisson()}{poisson()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Random\+Numbers\+::poisson (\begin{DoxyParamCaption}\item[{double}]{mean = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+23                                         \{
+24     
+25 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classRandomNumbers_a851aaa7e46922dc22ce984b21b474a4e}\label{classRandomNumbers_a851aaa7e46922dc22ce984b21b474a4e}} 
+\index{Random\+Numbers@{Random\+Numbers}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily void Random\+Numbers\+::shuffle (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{\+\_\+v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+42 \{\hyperlink{random_8cpp_aa05dc7afcb8fa60859bfb09b0f312c73}{std::shuffle}(\_v.begin(), \_v.end(), \hyperlink{classRandomNumbers_a15ceee85d6d00de12ae76c90aaec2f14}{rng});\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classRandomNumbers_ae226c129494f9055ac37ed1af943d010}\label{classRandomNumbers_ae226c129494f9055ac37ed1af943d010}} 
+\index{Random\+Numbers@{Random\+Numbers}!uniform\+\_\+double@{uniform\+\_\+double}}
+\index{uniform\+\_\+double@{uniform\+\_\+double}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{uniform\+\_\+double()}{uniform\_double()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Random\+Numbers\+::uniform\+\_\+double (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{,  }\item[{double}]{lower = {\ttfamily 0},  }\item[{double}]{upper = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+3                                                                                      \{
+4     
+5 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classRandomNumbers_a1e66bf9926ad3916f3804dd20ea393f1}\label{classRandomNumbers_a1e66bf9926ad3916f3804dd20ea393f1}} 
+\index{Random\+Numbers@{Random\+Numbers}!uniform\+\_\+double@{uniform\+\_\+double}}
+\index{uniform\+\_\+double@{uniform\+\_\+double}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{uniform\+\_\+double()}{uniform\_double()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Random\+Numbers\+::uniform\+\_\+double (\begin{DoxyParamCaption}\item[{double}]{lower = {\ttfamily 0},  }\item[{double}]{upper = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+7                                                                    \{
+8     
+9 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classRandomNumbers_a15ceee85d6d00de12ae76c90aaec2f14}\label{classRandomNumbers_a15ceee85d6d00de12ae76c90aaec2f14}} 
+\index{Random\+Numbers@{Random\+Numbers}!rng@{rng}}
+\index{rng@{rng}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{rng}{rng}}
+{\footnotesize\ttfamily std\+::mt19937 Random\+Numbers\+::rng\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRandomNumbers_a83c563bc5ca60f2e5c149244b327d948}\label{classRandomNumbers_a83c563bc5ca60f2e5c149244b327d948}} 
+\index{Random\+Numbers@{Random\+Numbers}!seed@{seed}}
+\index{seed@{seed}!Random\+Numbers@{Random\+Numbers}}
+\subsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily long int Random\+Numbers\+::seed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{random_8h}{random.\+h}\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{random_8cpp}{random.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,409 @@
+\hypertarget{classNeuron}{}\section{Neuron Class Reference}
+\label{classNeuron}\index{Neuron@{Neuron}}
+
+
+{\ttfamily \#include $<$neuron.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNeuron_a823487d01615fadb8ac19a2768dd9d96}{Neuron} ()
+\item 
+void \hyperlink{classNeuron_a85049e5f8745c53867178dd1cf6e51e3}{set\+\_\+params} (const \hyperlink{structNeuronParams}{Neuron\+Params} \&, const double n=0)
+\item 
+void \hyperlink{classNeuron_a533359bca915ef99c96e50d4bfff58b2}{set\+\_\+type} (std\+::string)
+\item 
+void \hyperlink{classNeuron_a0759d03a357708ee4174f1bbb2b0b8d7}{set\+\_\+default\+\_\+params} (const std\+::string \&, double n=0)
+\item 
+bool \hyperlink{classNeuron_a37459ba1dc4b0060707c33bf2ad5b10d}{is\+\_\+type} (const std\+::string \&)
+\item 
+std\+::string \hyperlink{classNeuron_abcf0b4ecd00cba630bfd2e764a61b5ee}{type} ()
+\item 
+bool \hyperlink{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}{is\+\_\+inhibitory} () const
+\item 
+void \hyperlink{classNeuron_aa1481c474df55ad14373e51c6bb0f6fd}{set\+\_\+inhibitory} ()
+\item 
+bool \hyperlink{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}{firing} () const
+\item 
+void \hyperlink{classNeuron_a6817fc5bf2128150b41b65e74f018408}{reset} ()
+\item 
+void \hyperlink{classNeuron_a224d5cead5f94bbe15ae49774db3e174}{step} ()
+\item 
+void \hyperlink{classNeuron_a47ea1a8f25dd62a34c9e0bdc0b7ae7fb}{potential} (const double \&\+\_\+p)
+\item 
+double \hyperlink{classNeuron_aab6607e17778ff1b4c05610c935b3156}{potential} () const
+\item 
+double \hyperlink{classNeuron_a2e84bc427827092295070dec404886f4}{recovery} () const
+\item 
+void \hyperlink{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}{input} (const double i)
+\item 
+double \hyperlink{classNeuron_ac00c31820b58e9c6f909db6a12e58b34}{input} () const
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Output strings}\par
+{\em For printing purposes\+: all parameters and dynamic values are returned as a formatted string (tab-\/delimited concatenation of values). }\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classNeuron_a24dc0979745c7e25cfa997d88d973896}{formatted\+\_\+params} () const
+\item 
+std\+::string \hyperlink{classNeuron_aa1c46c99ed3e1a349b5e0ee82aec3026}{formatted\+\_\+values} () const
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Static Public Member Functions}
+\begin{Indent}\textbf{ Static helpers}\par
+{\em \hyperlink{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}{type\+\_\+exists} checks if the string {\ttfamily s} exists in the map \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+Types} and \hyperlink{classNeuron_a4e5c4e0a512460dd59449a0bec4d0db7}{type\+\_\+default} returns the corresponding \hyperlink{structNeuronParams}{Neuron\+Params} from \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+Types}. }\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}{type\+\_\+exists} (const std\+::string \&s)
+\item 
+static \hyperlink{structNeuronParams}{Neuron\+Params} \hyperlink{classNeuron_a4e5c4e0a512460dd59449a0bec4d0db7}{type\+\_\+default} (const std\+::string \&s)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Private Attributes}
+\begin{Indent}\textbf{ Neuron parameters}\par
+{\em {\ttfamily a}, {\ttfamily b}, {\ttfamily c}, {\ttfamily d}, and the boolean {\ttfamily inhib} if neuron is inhibitory. }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structNeuronParams}{Neuron\+Params} \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Reference to the neuron type}\par
+{\em This is an iterator to the relevant element of \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+::\+Neuron\+Types}. }\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{structNeuronParams}{Neuron\+Params} $>$\+::const\+\_\+iterator \hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\+\_\+type}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Dynamic variables}\par
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\+\_\+poten}
+\item 
+double \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\+\_\+recov}
+\item 
+double \hyperlink{classNeuron_ac1311b3b22122a67743615ee40caba6d}{\+\_\+input}
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::map$<$ std\+::string, \hyperlink{structNeuronParams}{Neuron\+Params} $>$ \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+Types}
+\item 
+static double \hyperlink{classNeuron_a9173cec15070307b635e58f976113ad7}{firing\+\_\+thresh} = 30
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A neuron type is defined by four parameters {\ttfamily a}, {\ttfamily b}, {\ttfamily c}, {\ttfamily d}, and the \char`\"{}inhibitory\char`\"{} or \char`\"{}excitatory\char`\"{} quality.
+
+Standard types are provided in \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+Types} and identified by a 2 or 3-\/letter string.
+
+The dynamic variables are the membrane potential, the recovery variable and the input. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNeuron_a823487d01615fadb8ac19a2768dd9d96}\label{classNeuron_a823487d01615fadb8ac19a2768dd9d96}} 
+\index{Neuron@{Neuron}!Neuron@{Neuron}}
+\index{Neuron@{Neuron}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{Neuron()}{Neuron()}}
+{\footnotesize\ttfamily Neuron\+::\+Neuron (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor\+: a {\itshape RS} neuron. 
+\begin{DoxyCode}
+16                : \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}(\hyperlink{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}{\_REST\_VAL\_}) \{
+17     \hyperlink{classNeuron_a533359bca915ef99c96e50d4bfff58b2}{set\_type}(\textcolor{stringliteral}{"RS"});
+18 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}\label{classNeuron_a4f477ebb623a7681c0f09dbfc4608a0d}} 
+\index{Neuron@{Neuron}!firing@{firing}}
+\index{firing@{firing}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{firing()}{firing()}}
+{\footnotesize\ttfamily bool Neuron\+::firing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+A neuron is firing if its membrane potential exceeds the firing threshold \hyperlink{classNeuron_a9173cec15070307b635e58f976113ad7}{firing\+\_\+thresh} 
+\begin{DoxyCode}
+32 \{\textcolor{keywordflow}{return} (\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}>\hyperlink{classNeuron_a9173cec15070307b635e58f976113ad7}{firing\_thresh});\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a24dc0979745c7e25cfa997d88d973896}\label{classNeuron_a24dc0979745c7e25cfa997d88d973896}} 
+\index{Neuron@{Neuron}!formatted\+\_\+params@{formatted\+\_\+params}}
+\index{formatted\+\_\+params@{formatted\+\_\+params}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{formatted\+\_\+params()}{formatted\_params()}}
+{\footnotesize\ttfamily std\+::string Neuron\+::formatted\+\_\+params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyCode}
+55                                          \{
+56     std::stringstream ss;
+57     ss << \hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\_type}->first << \textcolor{charliteral}{'\(\backslash\)t'}
+58        << \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a359703733f5e70bbd67d019e45a3bc85}{a} << \textcolor{charliteral}{'\(\backslash\)t'}
+59        << \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_abd1bd37179d8efa115a8749f9252f77d}{b} << \textcolor{charliteral}{'\(\backslash\)t'}
+60        << \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a5df2ced2526eb84af2c8d2d34d9bfd93}{c} << \textcolor{charliteral}{'\(\backslash\)t'}
+61        << \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_af2bd3bad3bc5532186cdc8d056a10cfb}{d} << \textcolor{charliteral}{'\(\backslash\)t'}
+62        << (int)\hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a751856d77a821cbd361b774d8653bbe6}{inhib};
+63     \textcolor{keywordflow}{return} ss.str();
+64 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_aa1c46c99ed3e1a349b5e0ee82aec3026}\label{classNeuron_aa1c46c99ed3e1a349b5e0ee82aec3026}} 
+\index{Neuron@{Neuron}!formatted\+\_\+values@{formatted\+\_\+values}}
+\index{formatted\+\_\+values@{formatted\+\_\+values}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{formatted\+\_\+values()}{formatted\_values()}}
+{\footnotesize\ttfamily std\+::string Neuron\+::formatted\+\_\+values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyCode}
+66                                          \{
+67     std::stringstream ss;
+68     ss << \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten} << \textcolor{charliteral}{'\(\backslash\)t'} << \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov} << \textcolor{charliteral}{'\(\backslash\)t'} << \hyperlink{classNeuron_ac1311b3b22122a67743615ee40caba6d}{\_input};
+69     \textcolor{keywordflow}{return} ss.str();
+70 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}\label{classNeuron_ab6b4f1a9633eaae9967cc6b226eed5fa}} 
+\index{Neuron@{Neuron}!input@{input}}
+\index{input@{input}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{input()}{input()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Neuron\+::input (\begin{DoxyParamCaption}\item[{const double}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+44 \{\hyperlink{classNeuron_ac1311b3b22122a67743615ee40caba6d}{\_input}=i;\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_ac00c31820b58e9c6f909db6a12e58b34}\label{classNeuron_ac00c31820b58e9c6f909db6a12e58b34}} 
+\index{Neuron@{Neuron}!input@{input}}
+\index{input@{input}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{input()}{input()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Neuron\+::input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+45 \{\textcolor{keywordflow}{return} \hyperlink{classNeuron_ac1311b3b22122a67743615ee40caba6d}{\_input};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}\label{classNeuron_a649c6080b0749e6e642bf9df8f191d2d}} 
+\index{Neuron@{Neuron}!is\+\_\+inhibitory@{is\+\_\+inhibitory}}
+\index{is\+\_\+inhibitory@{is\+\_\+inhibitory}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{is\+\_\+inhibitory()}{is\_inhibitory()}}
+{\footnotesize\ttfamily bool Neuron\+::is\+\_\+inhibitory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+27 \{\textcolor{keywordflow}{return} \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a751856d77a821cbd361b774d8653bbe6}{inhib};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a37459ba1dc4b0060707c33bf2ad5b10d}\label{classNeuron_a37459ba1dc4b0060707c33bf2ad5b10d}} 
+\index{Neuron@{Neuron}!is\+\_\+type@{is\+\_\+type}}
+\index{is\+\_\+type@{is\+\_\+type}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{is\+\_\+type()}{is\_type()}}
+{\footnotesize\ttfamily bool Neuron\+::is\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+t }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+45                                         \{
+46     \textcolor{keywordflow}{return} (\hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\_type} != \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{NeuronTypes}.end()) && (\hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\_type}->first == \_t);
+47 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a47ea1a8f25dd62a34c9e0bdc0b7ae7fb}\label{classNeuron_a47ea1a8f25dd62a34c9e0bdc0b7ae7fb}} 
+\index{Neuron@{Neuron}!potential@{potential}}
+\index{potential@{potential}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{potential()}{potential()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Neuron\+::potential (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+41 \{\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten} = \_p;\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_aab6607e17778ff1b4c05610c935b3156}\label{classNeuron_aab6607e17778ff1b4c05610c935b3156}} 
+\index{Neuron@{Neuron}!potential@{potential}}
+\index{potential@{potential}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{potential()}{potential()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Neuron\+::potential (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+42 \{\textcolor{keywordflow}{return} \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a2e84bc427827092295070dec404886f4}\label{classNeuron_a2e84bc427827092295070dec404886f4}} 
+\index{Neuron@{Neuron}!recovery@{recovery}}
+\index{recovery@{recovery}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{recovery()}{recovery()}}
+{\footnotesize\ttfamily double Neuron\+::recovery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+43 \{\textcolor{keywordflow}{return} \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a6817fc5bf2128150b41b65e74f018408}\label{classNeuron_a6817fc5bf2128150b41b65e74f018408}} 
+\index{Neuron@{Neuron}!reset@{reset}}
+\index{reset@{reset}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Neuron\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+After firing, the neuron is reset\+: \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\+\_\+poten} is set to {\ttfamily c}, \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\+\_\+recov} is increased by {\ttfamily d}. 
+\begin{DoxyCode}
+36 \{\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}=\hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a5df2ced2526eb84af2c8d2d34d9bfd93}{c}; \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov}+=\hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_af2bd3bad3bc5532186cdc8d056a10cfb}{d};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a0759d03a357708ee4174f1bbb2b0b8d7}\label{classNeuron_a0759d03a357708ee4174f1bbb2b0b8d7}} 
+\index{Neuron@{Neuron}!set\+\_\+default\+\_\+params@{set\+\_\+default\+\_\+params}}
+\index{set\+\_\+default\+\_\+params@{set\+\_\+default\+\_\+params}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{set\+\_\+default\+\_\+params()}{set\_default\_params()}}
+{\footnotesize\ttfamily void Neuron\+::set\+\_\+default\+\_\+params (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{typ,  }\item[{double}]{n = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+40                                                                         \{
+41     \hyperlink{classNeuron_a533359bca915ef99c96e50d4bfff58b2}{set\_type}(typ);
+42     \hyperlink{classNeuron_a85049e5f8745c53867178dd1cf6e51e3}{set\_params}(\hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\_type}->second, \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise});
+43 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_aa1481c474df55ad14373e51c6bb0f6fd}\label{classNeuron_aa1481c474df55ad14373e51c6bb0f6fd}} 
+\index{Neuron@{Neuron}!set\+\_\+inhibitory@{set\+\_\+inhibitory}}
+\index{set\+\_\+inhibitory@{set\+\_\+inhibitory}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{set\+\_\+inhibitory()}{set\_inhibitory()}}
+{\footnotesize\ttfamily void Neuron\+::set\+\_\+inhibitory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+28 \{\hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a751856d77a821cbd361b774d8653bbe6}{inhib}=\textcolor{keyword}{true};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a85049e5f8745c53867178dd1cf6e51e3}\label{classNeuron_a85049e5f8745c53867178dd1cf6e51e3}} 
+\index{Neuron@{Neuron}!set\+\_\+params@{set\+\_\+params}}
+\index{set\+\_\+params@{set\+\_\+params}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{set\+\_\+params()}{set\_params()}}
+{\footnotesize\ttfamily void Neuron\+::set\+\_\+params (\begin{DoxyParamCaption}\item[{const \hyperlink{structNeuronParams}{Neuron\+Params} \&}]{np,  }\item[{const double}]{n = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+20                                                             \{
+21     \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params} = np;
+22     \textcolor{keywordflow}{if} (std::abs(\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise})>1e-8) \{
+23         \textcolor{keywordflow}{if} (\hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a751856d77a821cbd361b774d8653bbe6}{inhib}) \{
+24             \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a359703733f5e70bbd67d019e45a3bc85}{a} *= 1-\hyperlink{globals_8h_a6ed83a2720f26c982b486bcd7398bda4}{\_AVAR\_}*\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise};
+25             \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_abd1bd37179d8efa115a8749f9252f77d}{b} *= 1+\hyperlink{globals_8h_afeb27810410b4ad253c0cc446b56cbfd}{\_BVAR\_}*\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise};
+26         \} \textcolor{keywordflow}{else} \{
+27             \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise} *= \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise};
+28             \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a5df2ced2526eb84af2c8d2d34d9bfd93}{c} *= 1-\hyperlink{globals_8h_a6f19bdc067b5267c5f96db47062fef17}{\_CVAR\_}*\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise};
+29             \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_af2bd3bad3bc5532186cdc8d056a10cfb}{d} *= 1-\hyperlink{globals_8h_ab562b7e46b970a109c23f7e3eaa10bf2}{\_DVAR\_}*\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise};
+30         \}
+31     \}
+32     \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov} = \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_abd1bd37179d8efa115a8749f9252f77d}{b}*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten};
+33 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a533359bca915ef99c96e50d4bfff58b2}\label{classNeuron_a533359bca915ef99c96e50d4bfff58b2}} 
+\index{Neuron@{Neuron}!set\+\_\+type@{set\+\_\+type}}
+\index{set\+\_\+type@{set\+\_\+type}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{set\+\_\+type()}{set\_type()}}
+{\footnotesize\ttfamily void Neuron\+::set\+\_\+type (\begin{DoxyParamCaption}\item[{std\+::string}]{typ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+35                                    \{    
+36     \textcolor{keywordflow}{if} (!\hyperlink{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}{type\_exists}(typ)) typ = \textcolor{stringliteral}{"RS"};
+37     \hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\_type} = \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{NeuronTypes}.find(typ);
+38 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a224d5cead5f94bbe15ae49774db3e174}\label{classNeuron_a224d5cead5f94bbe15ae49774db3e174}} 
+\index{Neuron@{Neuron}!step@{step}}
+\index{step@{step}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily void Neuron\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+One step of time evolution\+: \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\+\_\+poten} and \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\+\_\+recov} are updated according to the Izhikevich equations. 
+\begin{DoxyCode}
+49                   \{
+50     \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten} += 0.5*(0.04*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}+5*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}+140-
+      \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov}+\hyperlink{classNeuron_ac1311b3b22122a67743615ee40caba6d}{\_input});
+51     \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten} += 0.5*(0.04*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}+5*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}+140-
+      \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov}+\hyperlink{classNeuron_ac1311b3b22122a67743615ee40caba6d}{\_input});
+52     \hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov} += \hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_a359703733f5e70bbd67d019e45a3bc85}{a}*(\hyperlink{classNeuron_a9427965b6669c7c35c327689de7a4d63}{params}.\hyperlink{structNeuronParams_abd1bd37179d8efa115a8749f9252f77d}{b}*\hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{\_poten}-\hyperlink{classNeuron_a7bc9f5b85125f2c2596b64766796002b}{\_recov});
+53 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_abcf0b4ecd00cba630bfd2e764a61b5ee}\label{classNeuron_abcf0b4ecd00cba630bfd2e764a61b5ee}} 
+\index{Neuron@{Neuron}!type@{type}}
+\index{type@{type}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily std\+::string Neuron\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+26 \{\textcolor{keywordflow}{return} \hyperlink{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}{\_type}->first;\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a4e5c4e0a512460dd59449a0bec4d0db7}\label{classNeuron_a4e5c4e0a512460dd59449a0bec4d0db7}} 
+\index{Neuron@{Neuron}!type\+\_\+default@{type\+\_\+default}}
+\index{type\+\_\+default@{type\+\_\+default}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{type\+\_\+default()}{type\_default()}}
+{\footnotesize\ttfamily static \hyperlink{structNeuronParams}{Neuron\+Params} Neuron\+::type\+\_\+default (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyCode}
+60                                                          \{
+61         \textcolor{keywordflow}{if} (\hyperlink{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}{type\_exists}(s)) \textcolor{keywordflow}{return} \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{NeuronTypes}.at(s);
+62         \textcolor{keywordflow}{return} \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{NeuronTypes}.at(\textcolor{stringliteral}{"RS"});
+63     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}\label{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}} 
+\index{Neuron@{Neuron}!type\+\_\+exists@{type\+\_\+exists}}
+\index{type\+\_\+exists@{type\+\_\+exists}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{type\+\_\+exists()}{type\_exists()}}
+{\footnotesize\ttfamily static bool Neuron\+::type\+\_\+exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyCode}
+59 \{\textcolor{keywordflow}{return} \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{NeuronTypes}.count(s);\}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classNeuron_ac1311b3b22122a67743615ee40caba6d}\label{classNeuron_ac1311b3b22122a67743615ee40caba6d}} 
+\index{Neuron@{Neuron}!\+\_\+input@{\+\_\+input}}
+\index{\+\_\+input@{\+\_\+input}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{\+\_\+input}{\_input}}
+{\footnotesize\ttfamily double Neuron\+::\+\_\+input\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classNeuron_a7f7fdc3f9550b870351c60f618c11376}\label{classNeuron_a7f7fdc3f9550b870351c60f618c11376}} 
+\index{Neuron@{Neuron}!\+\_\+poten@{\+\_\+poten}}
+\index{\+\_\+poten@{\+\_\+poten}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{\+\_\+poten}{\_poten}}
+{\footnotesize\ttfamily double Neuron\+::\+\_\+poten\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classNeuron_a7bc9f5b85125f2c2596b64766796002b}\label{classNeuron_a7bc9f5b85125f2c2596b64766796002b}} 
+\index{Neuron@{Neuron}!\+\_\+recov@{\+\_\+recov}}
+\index{\+\_\+recov@{\+\_\+recov}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{\+\_\+recov}{\_recov}}
+{\footnotesize\ttfamily double Neuron\+::\+\_\+recov\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}\label{classNeuron_af48de7c2ad739fc5d57bfa2f3b1f7663}} 
+\index{Neuron@{Neuron}!\+\_\+type@{\+\_\+type}}
+\index{\+\_\+type@{\+\_\+type}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{\+\_\+type}{\_type}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, \hyperlink{structNeuronParams}{Neuron\+Params}$>$\+::const\+\_\+iterator Neuron\+::\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classNeuron_a9173cec15070307b635e58f976113ad7}\label{classNeuron_a9173cec15070307b635e58f976113ad7}} 
+\index{Neuron@{Neuron}!firing\+\_\+thresh@{firing\+\_\+thresh}}
+\index{firing\+\_\+thresh@{firing\+\_\+thresh}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{firing\+\_\+thresh}{firing\_thresh}}
+{\footnotesize\ttfamily double Neuron\+::firing\+\_\+thresh = 30\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}\label{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}} 
+\index{Neuron@{Neuron}!Neuron\+Types@{Neuron\+Types}}
+\index{Neuron\+Types@{Neuron\+Types}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{Neuron\+Types}{NeuronTypes}}
+{\footnotesize\ttfamily const std\+::map$<$ std\+::string, \hyperlink{structNeuronParams}{Neuron\+Params} $>$ Neuron\+::\+Neuron\+Types\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    \{\textcolor{stringliteral}{"RS"},  \{.02, .2,  -65, 8,   \textcolor{keyword}{false}\}\},
+    \{\textcolor{stringliteral}{"IB"},  \{.02, .2,  -55, 4,   \textcolor{keyword}{false}\}\},
+    \{\textcolor{stringliteral}{"CH"},  \{.02, .2,  -50, 2,   \textcolor{keyword}{false}\}\},
+    \{\textcolor{stringliteral}{"FS"},  \{.1,  .2,  -65, 2,   \textcolor{keyword}{true} \}\},
+    \{\textcolor{stringliteral}{"LTS"}, \{.02, .25, -65, 2,   \textcolor{keyword}{true} \}\},
+    \{\textcolor{stringliteral}{"TC"},  \{.02, .25, -65, .05, \textcolor{keyword}{false}\}\},
+    \{\textcolor{stringliteral}{"RZ"},  \{.1,  .26, -65, 2,   \textcolor{keyword}{false}\}\}
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNeuron_a9427965b6669c7c35c327689de7a4d63}\label{classNeuron_a9427965b6669c7c35c327689de7a4d63}} 
+\index{Neuron@{Neuron}!params@{params}}
+\index{params@{params}!Neuron@{Neuron}}
+\subsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily \hyperlink{structNeuronParams}{Neuron\+Params} Neuron\+::params\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{neuron_8h}{neuron.\+h}\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{neuron_8cpp}{neuron.\+cpp}\end{DoxyCompactItemize}

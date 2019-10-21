@@ -1,0 +1,11 @@
+This is an implementation of the model of E.\+M. Izhikevich \href{https://www.izhikevich.org/publications/spikes.pdf}{\tt (Simple Model of Spiking Neuron, I\+EE Trans. Neural Net., 2003)}.
+
+A typical command is \begin{DoxyVerb}./NeuronNet -T IB:0.2,CH:0.15 -N 800 -d 100 -o test1000 -t 1000\end{DoxyVerb}
+ wihich will create a \hyperlink{classNetwork}{network} of 800 \hyperlink{classNeuron}{neurons} consisting of 20\% of {\itshape IB} neurons, 15\% of {\itshape CH} neurons and {\itshape RS} neurons (see \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+::\+Neuron\+Types}).
+
+\hyperlink{classNetwork_a681d8f731ce258376a20f9bf062b943b}{Random connections} will be created so that the average neuron has 100 incoming connections. A simulation of a 1000 time-\/steps will be \hyperlink{classSimulation_ae5c367f87c0b5dc9740bc6d00e44e72c}{run} and the results will be saved in 3 \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output} files\+:
+\begin{DoxyItemize}
+\item test1000\+: raster plots (table of 1000 columns and 800 lines with 1 when a neuron {\itshape n} fires at time {\itshape t}, 0 elsewhere),
+\item test1000\+\_\+traj\+: one representative time trajectory for each neuron type,
+\item test1000\+\_\+pars\+: all neuron parameters. 
+\end{DoxyItemize}

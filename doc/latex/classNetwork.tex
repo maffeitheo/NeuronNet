@@ -1,0 +1,416 @@
+\hypertarget{classNetwork}{}\section{Network Class Reference}
+\label{classNetwork}\index{Network@{Network}}
+
+
+{\ttfamily \#include $<$network.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}{resize} (const size\+\_\+t \&, double \+\_\+i=0.\+2)
+\item 
+void \hyperlink{classNetwork_ad1d20020028425cfab199da1942172c9}{set\+\_\+default\+\_\+params} (const std\+::map$<$ std\+::string, size\+\_\+t $>$ \&, const size\+\_\+t \+\_\+s=0)
+\item 
+void \hyperlink{classNetwork_a40daf6578a6146f4c339f0efffd5070d}{set\+\_\+types\+\_\+params} (const std\+::vector$<$ std\+::string $>$ \&, const std\+::vector$<$ \hyperlink{structNeuronParams}{Neuron\+Params} $>$ \&, const size\+\_\+t \+\_\+s=0)
+\item 
+void \hyperlink{classNetwork_a699416a6462f2da6a5f6cddb30f31440}{set\+\_\+values} (const std\+::vector$<$ double $>$ \&, const size\+\_\+t \+\_\+s=0)
+\item 
+bool \hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\+\_\+link} (const size\+\_\+t \&, const size\+\_\+t \&, double)
+\item 
+size\+\_\+t \hyperlink{classNetwork_a681d8f731ce258376a20f9bf062b943b}{random\+\_\+connect} (const double \&, const double \&s=.\+25)
+\item 
+size\+\_\+t \hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size} () const
+\item 
+std\+::pair$<$ size\+\_\+t, double $>$ \hyperlink{classNetwork_a313da14a6a430ae14e3943dba78edb61}{degree} (const size\+\_\+t \&) const
+\item 
+const \hyperlink{classNeuron}{Neuron} \& \hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron} (const size\+\_\+t n) const
+\item 
+std\+::vector$<$ std\+::pair$<$ size\+\_\+t, double $>$ $>$ \hyperlink{classNetwork_a98bbf44b077ba1bec5a62ecffc405503}{neighbors} (const size\+\_\+t \&) const
+\item 
+std\+::vector$<$ double $>$ \hyperlink{classNetwork_a44d9c341bfec26cb37efe3c29fd7a103}{potentials} () const
+\item 
+std\+::vector$<$ double $>$ \hyperlink{classNetwork_a2e9dbb815c622cccdd50186ae8c9f4a7}{recoveries} () const
+\item 
+std\+::set$<$ size\+\_\+t $>$ \hyperlink{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}{step} (const std\+::vector$<$ double $>$ \&)
+\item 
+void \hyperlink{classNetwork_afc43116eb2429aeec0f3c6a54d252142}{print\+\_\+params} (std\+::ostream $\ast$\+\_\+out=\&std\+::cout)
+\item 
+void \hyperlink{classNetwork_ae460d31557bba058fdf66e4fe5feb801}{print\+\_\+traj} (const int, const std\+::map$<$ std\+::string, size\+\_\+t $>$ \&, std\+::ostream $\ast$\+\_\+out=\&std\+::cout)
+\item 
+void \hyperlink{classNetwork_ab572dd33cb91d9f0aae89c4477809d26}{print\+\_\+head} (const std\+::map$<$ std\+::string, size\+\_\+t $>$ \&, std\+::ostream $\ast$\+\_\+out=\&std\+::cout)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classNeuron}{Neuron} $>$ \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}
+\item 
+\hyperlink{network_8h_a889f48bcec09c9d72a03648e911c5ff5}{linkmap} \hyperlink{classNetwork_aef1609a9a6b865651417ce995b4575a8}{links}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A neuron network is a \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{set} of neurons and a \hyperlink{classNetwork_aef1609a9a6b865651417ce995b4575a8}{set} of directional links between them.
+
+Neurons are objects of class \hyperlink{classNeuron}{Neuron} (they are identified by their index in the vector \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}). A link is an ordered pair of indices in \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons} with an intensity value, collected in a \hyperlink{network_8h_a889f48bcec09c9d72a03648e911c5ff5}{linkmap}. This is a \href{https://en.cppreference.com/w/cpp/container/map}{\tt std\+::map} therefore only one connection can exist between two neurons.
+
+To create a network, you need to \hyperlink{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}{resize} it and optionally \hyperlink{classNetwork_ad1d20020028425cfab199da1942172c9}{set\+\_\+default\+\_\+params} for each neuron. Then you can either call \hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\+\_\+link} for each connection or generate a random network with \hyperlink{classNetwork_a681d8f731ce258376a20f9bf062b943b}{random\+\_\+connect}.
+
+The dynamics of the network proceeds by calling \hyperlink{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}{step}. The state of the network can be printed to output streams with \hyperlink{classNetwork_afc43116eb2429aeec0f3c6a54d252142}{print\+\_\+params} (to print all parameters of all neurons), \hyperlink{classNetwork_ae460d31557bba058fdf66e4fe5feb801}{print\+\_\+traj} to print the full state of one neuron of each type. The helper function \hyperlink{classNetwork_ab572dd33cb91d9f0aae89c4477809d26}{print\+\_\+head} will print a header line with the variable names for the the \hyperlink{classNetwork_ae460d31557bba058fdf66e4fe5feb801}{print\+\_\+traj} lines.
+
+This class provides accessors to the following \hyperlink{classNeuron}{Neuron} properties
+\begin{DoxyItemize}
+\item \hyperlink{classNetwork_a313da14a6a430ae14e3943dba78edb61}{degree} \+: returns the degree of a neuron (number of incoming connections) and valence (sum of weights of these links)
+\item \hyperlink{classNetwork_a98bbf44b077ba1bec5a62ecffc405503}{neighbors} \+: returns the indices of neurons with incoming links to a given neuron,
+\item \hyperlink{classNetwork_a44d9c341bfec26cb37efe3c29fd7a103}{potentials} \+: returns the values of membrane potentials for all neurons,
+\item \hyperlink{classNetwork_a2e9dbb815c622cccdd50186ae8c9f4a7}{recoveries} \+: returns the values of recovery variables for all neurons,
+\item \hyperlink{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}{neuron} \+: returns a const reference to a given neuron object. 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetwork_a6ebe0899329973e4924997a25e205856}\label{classNetwork_a6ebe0899329973e4924997a25e205856}} 
+\index{Network@{Network}!add\+\_\+link@{add\+\_\+link}}
+\index{add\+\_\+link@{add\+\_\+link}!Network@{Network}}
+\subsubsection{\texorpdfstring{add\+\_\+link()}{add\_link()}}
+{\footnotesize\ttfamily bool Network\+::add\+\_\+link (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{a,  }\item[{const size\+\_\+t \&}]{b,  }\item[{double}]{str }\end{DoxyParamCaption})}
+
+Creates a new link in \hyperlink{classNetwork_aef1609a9a6b865651417ce995b4575a8}{links}. 
+\begin{DoxyParams}{Parameters}
+{\em a} & (size\+\_\+t)\+: receiving neuron, \\
+\hline
+{\em b} & (size\+\_\+t)\+: sending neuron, \\
+\hline
+{\em str} & (double)\+: link intensity (will be multiplied by -\/2 for inhibitory source). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the link could be created. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+38                                                                    \{
+39     \textcolor{keywordflow}{if} (a==b || a>=\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}() || b>=\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}() || str<1e-6) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+40     \textcolor{keywordflow}{if} (\hyperlink{classNetwork_aef1609a9a6b865651417ce995b4575a8}{links}.count(\{a,b\})) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+41     \textcolor{keywordflow}{if} (\hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[b].is\_inhibitory()) str *= -2.0;
+42     \hyperlink{classNetwork_aef1609a9a6b865651417ce995b4575a8}{links}.insert(\{\{a,b\}, str\});
+43     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+44 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a313da14a6a430ae14e3943dba78edb61}\label{classNetwork_a313da14a6a430ae14e3943dba78edb61}} 
+\index{Network@{Network}!degree@{degree}}
+\index{degree@{degree}!Network@{Network}}
+\subsubsection{\texorpdfstring{degree()}{degree()}}
+{\footnotesize\ttfamily std\+::pair$<$size\+\_\+t, double$>$ Network\+::degree (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{ }\end{DoxyParamCaption}) const}
+
+Calculates the number and total intensity of connections to neuron {\ttfamily n}. 
+\begin{DoxyParams}{Parameters}
+{\em n} & \+: the index of the receiving neuron. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pair \{number of connections, sum of link intensities\}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_a98bbf44b077ba1bec5a62ecffc405503}\label{classNetwork_a98bbf44b077ba1bec5a62ecffc405503}} 
+\index{Network@{Network}!neighbors@{neighbors}}
+\index{neighbors@{neighbors}!Network@{Network}}
+\subsubsection{\texorpdfstring{neighbors()}{neighbors()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$size\+\_\+t, double$>$ $>$ Network\+::neighbors (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{ }\end{DoxyParamCaption}) const}
+
+Finds the list of neurons with incoming connections to {\ttfamily n}. 
+\begin{DoxyParams}{Parameters}
+{\em n} & \+: the index of the receiving neuron. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector of pairs \{neuron index, link intensity\}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}\label{classNetwork_a4639c4fd24bc6dc807ae35af6577ed7f}} 
+\index{Network@{Network}!neuron@{neuron}}
+\index{neuron@{neuron}!Network@{Network}}
+\subsubsection{\texorpdfstring{neuron()}{neuron()}}
+{\footnotesize\ttfamily const \hyperlink{classNeuron}{Neuron}\& Network\+::neuron (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+83 \{\textcolor{keywordflow}{return} \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}.at(n);\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a44d9c341bfec26cb37efe3c29fd7a103}\label{classNetwork_a44d9c341bfec26cb37efe3c29fd7a103}} 
+\index{Network@{Network}!potentials@{potentials}}
+\index{potentials@{potentials}!Network@{Network}}
+\subsubsection{\texorpdfstring{potentials()}{potentials()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Network\+::potentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyCode}
+65                                             \{
+66     std::vector<double> vals;
+67     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} nn=0; nn<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}(); nn++)
+68         vals.push\_back(\hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[nn].potential());
+69     \textcolor{keywordflow}{return} vals;
+70 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_ab572dd33cb91d9f0aae89c4477809d26}\label{classNetwork_ab572dd33cb91d9f0aae89c4477809d26}} 
+\index{Network@{Network}!print\+\_\+head@{print\+\_\+head}}
+\index{print\+\_\+head@{print\+\_\+head}!Network@{Network}}
+\subsubsection{\texorpdfstring{print\+\_\+head()}{print\_head()}}
+{\footnotesize\ttfamily void Network\+::print\+\_\+head (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, size\+\_\+t $>$ \&}]{\+\_\+nt,  }\item[{std\+::ostream $\ast$}]{\+\_\+out = {\ttfamily \&std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+90                                            \{
+91     \textcolor{keywordtype}{size\_t} total = 0;
+92     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} It : \_nt) \{
+93         total += It.second;
+94         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} In : \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons})
+95             \textcolor{keywordflow}{if} (In.is\_type(It.first)) \{
+96                 (*\_out) << \textcolor{charliteral}{'\(\backslash\)t'} << It.first << \textcolor{stringliteral}{".v"}
+97                         << \textcolor{charliteral}{'\(\backslash\)t'} << It.first << \textcolor{stringliteral}{".u"}
+98                         << \textcolor{charliteral}{'\(\backslash\)t'} << It.first << \textcolor{stringliteral}{".I"};
+99                 \textcolor{keywordflow}{break};
+100             \}
+101     \}
+102     \textcolor{keywordflow}{if} (total<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}())
+103         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} In : neurons) 
+104             \textcolor{keywordflow}{if} (In.is\_type(\textcolor{stringliteral}{"RS"})) \{
+105                 (*\_out) << \textcolor{charliteral}{'\(\backslash\)t'} << \textcolor{stringliteral}{"RS.v"} << \textcolor{charliteral}{'\(\backslash\)t'} << \textcolor{stringliteral}{"RS.u"} << \textcolor{charliteral}{'\(\backslash\)t'} << \textcolor{stringliteral}{"RS.I"};
+106                 \textcolor{keywordflow}{break};
+107             \}
+108     (*\_out) << std::endl;
+109 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_afc43116eb2429aeec0f3c6a54d252142}\label{classNetwork_afc43116eb2429aeec0f3c6a54d252142}} 
+\index{Network@{Network}!print\+\_\+params@{print\+\_\+params}}
+\index{print\+\_\+params@{print\+\_\+params}!Network@{Network}}
+\subsubsection{\texorpdfstring{print\+\_\+params()}{print\_params()}}
+{\footnotesize\ttfamily void Network\+::print\+\_\+params (\begin{DoxyParamCaption}\item[{std\+::ostream $\ast$}]{\+\_\+out = {\ttfamily \&std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+79                                            \{
+80     (*\_out) << \textcolor{stringliteral}{"Type\(\backslash\)ta\(\backslash\)tb\(\backslash\)tc\(\backslash\)td\(\backslash\)tInhibitory\(\backslash\)tdegree\(\backslash\)tvalence"} << std::endl;
+81     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} nn=0; nn<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}(); nn++) \{
+82         std::pair<size\_t, double> dI = \hyperlink{classNetwork_a313da14a6a430ae14e3943dba78edb61}{degree}(nn);
+83         (*\_out) << \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[nn].formatted\_params() 
+84                 << \textcolor{charliteral}{'\(\backslash\)t'} << dI.first << \textcolor{charliteral}{'\(\backslash\)t'} << dI.second
+85                 << std::endl;
+86     \}
+87 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_ae460d31557bba058fdf66e4fe5feb801}\label{classNetwork_ae460d31557bba058fdf66e4fe5feb801}} 
+\index{Network@{Network}!print\+\_\+traj@{print\+\_\+traj}}
+\index{print\+\_\+traj@{print\+\_\+traj}!Network@{Network}}
+\subsubsection{\texorpdfstring{print\+\_\+traj()}{print\_traj()}}
+{\footnotesize\ttfamily void Network\+::print\+\_\+traj (\begin{DoxyParamCaption}\item[{const int}]{time,  }\item[{const std\+::map$<$ std\+::string, size\+\_\+t $>$ \&}]{\+\_\+nt,  }\item[{std\+::ostream $\ast$}]{\+\_\+out = {\ttfamily \&std\+:\+:cout} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+112                                            \{
+113     (*\_out)  << time;
+114     \textcolor{keywordtype}{size\_t} total = 0;
+115     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} It : \_nt) \{
+116         total += It.second;
+117         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} In : \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}) 
+118             \textcolor{keywordflow}{if} (In.is\_type(It.first)) \{
+119                 (*\_out) << \textcolor{charliteral}{'\(\backslash\)t'} << In.formatted\_values();
+120                 \textcolor{keywordflow}{break};
+121             \}
+122     \}
+123     \textcolor{keywordflow}{if} (total<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}())
+124         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} In : neurons) 
+125             \textcolor{keywordflow}{if} (In.is\_type(\textcolor{stringliteral}{"RS"})) \{
+126                 (*\_out) << \textcolor{charliteral}{'\(\backslash\)t'} << In.formatted\_values();
+127                 \textcolor{keywordflow}{break};
+128             \}
+129     (*\_out) << std::endl;
+130 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a681d8f731ce258376a20f9bf062b943b}\label{classNetwork_a681d8f731ce258376a20f9bf062b943b}} 
+\index{Network@{Network}!random\+\_\+connect@{random\+\_\+connect}}
+\index{random\+\_\+connect@{random\+\_\+connect}!Network@{Network}}
+\subsubsection{\texorpdfstring{random\+\_\+connect()}{random\_connect()}}
+{\footnotesize\ttfamily size\+\_\+t Network\+::random\+\_\+connect (\begin{DoxyParamCaption}\item[{const double \&}]{mean\+\_\+deg,  }\item[{const double \&}]{s = {\ttfamily .25} }\end{DoxyParamCaption})}
+
+Creates random links in the network. Each neuron will expect to receive {\itshape n} connections (\hyperlink{classRandomNumbers_a69e33058b8a923f9597cf13421d5fcd4}{Random\+Numbers\+::poisson} with mean {\ttfamily mean\+\_\+deg}) of intensity {\itshape s} (\hyperlink{classRandomNumbers_ae226c129494f9055ac37ed1af943d010}{Random\+Numbers\+::uniform\+\_\+double} with mean {\ttfamily mean\+\_\+streng}). Sending neurons will be picked at random and since there can be only one connection from each neuron, the expected degree is not always achieved. 
+\begin{DoxyParams}{Parameters}
+{\em mean\+\_\+deg} & (double)\+: mean value of Poisson distribution. \\
+\hline
+{\em mean\+\_\+streng} & (double)\+: mean value of the uniform distribution (with bounds 0 and 2$\ast$mean\+\_\+streng). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of links created. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+46                                                                                 \{
+47     \hyperlink{classNetwork_aef1609a9a6b865651417ce995b4575a8}{links}.clear();
+48     std::vector<int> degrees(\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}());
+49     \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG}->\hyperlink{classRandomNumbers_a69e33058b8a923f9597cf13421d5fcd4}{poisson}(degrees, mean\_deg);
+50     \textcolor{keywordtype}{size\_t} num\_links = 0;
+51     std::vector<size\_t> nodeidx(\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}());
+52     std::iota(nodeidx.begin(), nodeidx.end(), 0);
+53     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} node=0; node<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}(); node++) \{
+54         \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG}->\hyperlink{classRandomNumbers_a851aaa7e46922dc22ce984b21b474a4e}{shuffle}(nodeidx);
+55         std::vector<double> strength(degrees[node]);
+56         \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG}->\hyperlink{classRandomNumbers_ae226c129494f9055ac37ed1af943d010}{uniform\_double}(strength, 1e-6, 2*mean\_streng);
+57         \textcolor{keywordtype}{int} nl = 0;
+58         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} nn=0; nn<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}() && nl<degrees[node]; nn++)
+59             \textcolor{keywordflow}{if} (\hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\_link}(node, nodeidx[nn], strength[nl])) nl++;
+60         num\_links += nl;
+61     \}
+62     \textcolor{keywordflow}{return} num\_links;
+63 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a2e9dbb815c622cccdd50186ae8c9f4a7}\label{classNetwork_a2e9dbb815c622cccdd50186ae8c9f4a7}} 
+\index{Network@{Network}!recoveries@{recoveries}}
+\index{recoveries@{recoveries}!Network@{Network}}
+\subsubsection{\texorpdfstring{recoveries()}{recoveries()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Network\+::recoveries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyCode}
+72                                             \{
+73     std::vector<double> vals;
+74     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} nn=0; nn<\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}(); nn++)
+75         vals.push\_back(\hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[nn].recovery());
+76     \textcolor{keywordflow}{return} vals;
+77 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}\label{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}} 
+\index{Network@{Network}!resize@{resize}}
+\index{resize@{resize}!Network@{Network}}
+\subsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Network\+::resize (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{n,  }\item[{double}]{\+\_\+i = {\ttfamily 0.2} }\end{DoxyParamCaption})}
+
+Resizes a network (grow or shrink). 
+\begin{DoxyParams}{Parameters}
+{\em n} & (size\+\_\+t)\+: new size of the network. If growing it will be filled with default excitatory and inhibitory neurons. \\
+\hline
+{\em \+\_\+i} & (double)\+: proportion of inhibitory neurons among the newly created. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+4                                                   \{
+5     \textcolor{keywordtype}{size\_t} old = \hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}();
+6     \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}.resize(n);
+7     \textcolor{keywordflow}{if} (n <= old) \textcolor{keywordflow}{return};
+8     \textcolor{keywordtype}{size\_t} nfs(inhib*(n-old)+.5);
+9     \hyperlink{classNetwork_ad1d20020028425cfab199da1942172c9}{set\_default\_params}(\{\{\textcolor{stringliteral}{"FS"}, nfs\}\}, old);
+10 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_ad1d20020028425cfab199da1942172c9}\label{classNetwork_ad1d20020028425cfab199da1942172c9}} 
+\index{Network@{Network}!set\+\_\+default\+\_\+params@{set\+\_\+default\+\_\+params}}
+\index{set\+\_\+default\+\_\+params@{set\+\_\+default\+\_\+params}!Network@{Network}}
+\subsubsection{\texorpdfstring{set\+\_\+default\+\_\+params()}{set\_default\_params()}}
+{\footnotesize\ttfamily void Network\+::set\+\_\+default\+\_\+params (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, size\+\_\+t $>$ \&}]{types,  }\item[{const size\+\_\+t}]{\+\_\+s = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Sets the neurons parameters. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+types} & \+: a map between \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+::\+Neuron\+Types} and the number of neurons to set. \\
+\hline
+{\em \+\_\+s} & \+: neurons will be set consecutively in \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons} starting from that index. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+13                                                      \{
+14     \textcolor{keywordtype}{size\_t} k(0), ssize(\hyperlink{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}{size}()-start), kmax(0);
+15     std::vector<double> \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise}(ssize);
+16     \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG}->\hyperlink{classRandomNumbers_ae226c129494f9055ac37ed1af943d010}{uniform\_double}(\hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise});
+17     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} I : types) 
+18         \textcolor{keywordflow}{if} (\hyperlink{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}{Neuron::type\_exists}(I.first)) 
+19             \textcolor{keywordflow}{for} (kmax+=I.second; k<kmax && k<ssize; k++) 
+20                 \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[start+k].set\_default\_params(I.first, \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise}[k]);
+21     \textcolor{keywordflow}{for} (; k<ssize; k++) \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[start+k].\hyperlink{classNetwork_ad1d20020028425cfab199da1942172c9}{set\_default\_params}(\textcolor{stringliteral}{"RS"}, 
+      \hyperlink{test__main_8cpp_aedb3acb007b8cca8efc63eed08f45705}{noise}[k]);
+22 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a40daf6578a6146f4c339f0efffd5070d}\label{classNetwork_a40daf6578a6146f4c339f0efffd5070d}} 
+\index{Network@{Network}!set\+\_\+types\+\_\+params@{set\+\_\+types\+\_\+params}}
+\index{set\+\_\+types\+\_\+params@{set\+\_\+types\+\_\+params}!Network@{Network}}
+\subsubsection{\texorpdfstring{set\+\_\+types\+\_\+params()}{set\_types\_params()}}
+{\footnotesize\ttfamily void Network\+::set\+\_\+types\+\_\+params (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{\+\_\+types,  }\item[{const std\+::vector$<$ \hyperlink{structNeuronParams}{Neuron\+Params} $>$ \&}]{\+\_\+par,  }\item[{const size\+\_\+t}]{\+\_\+s = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Sets the neurons parameters to non-\/default values. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+types} & \+: a vector of \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+::\+Neuron\+Types}. \\
+\hline
+{\em \+\_\+par} & \+: a vector of parameter values (\hyperlink{structNeuronParams}{Neuron\+Params}). \\
+\hline
+{\em \+\_\+start} & \+: index of starting neuron in \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+26                                                    \{
+27     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} k=0; k<\_par.size(); k++) \{
+28         \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[start+k].set\_type(\_types[k]);
+29         \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[start+k].set\_params(\_par[k]);
+30     \}
+31 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a699416a6462f2da6a5f6cddb30f31440}\label{classNetwork_a699416a6462f2da6a5f6cddb30f31440}} 
+\index{Network@{Network}!set\+\_\+values@{set\+\_\+values}}
+\index{set\+\_\+values@{set\+\_\+values}!Network@{Network}}
+\subsubsection{\texorpdfstring{set\+\_\+values()}{set\_values()}}
+{\footnotesize\ttfamily void Network\+::set\+\_\+values (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{\+\_\+poten,  }\item[{const size\+\_\+t}]{\+\_\+s = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Sets the values of all membrane potentials. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+poten} & \+: a vector of potential \hyperlink{classNeuron_a7f7fdc3f9550b870351c60f618c11376}{Neuron\+::\+\_\+poten} values. \\
+\hline
+{\em \+\_\+s} & \+: index of starting neuron in \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+33                                                                             \{
+34     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} k=0; k<\_poten.size(); k++) 
+35         \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}[start+k].potential(\_poten[k]);
+36 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}\label{classNetwork_a41c54d12d861883170b5c5abca3a7bc8}} 
+\index{Network@{Network}!size@{size}}
+\index{size@{size}!Network@{Network}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Network\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}
+76 \{\textcolor{keywordflow}{return} \hyperlink{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}{neurons}.size();\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}\label{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}} 
+\index{Network@{Network}!step@{step}}
+\index{step@{step}!Network@{Network}}
+\subsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily std\+::set$<$size\+\_\+t$>$ Network\+::step (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{ }\end{DoxyParamCaption})}
+
+Performs one time-\/step of the simulation. 
+\begin{DoxyParams}{Parameters}
+{\em input} & \+: a vector of random values as thalamic input, one value for each neuron. The variance of these values corresponds to excitatory neurons. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the indices of firing neurons. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classNetwork_aef1609a9a6b865651417ce995b4575a8}\label{classNetwork_aef1609a9a6b865651417ce995b4575a8}} 
+\index{Network@{Network}!links@{links}}
+\index{links@{links}!Network@{Network}}
+\subsubsection{\texorpdfstring{links}{links}}
+{\footnotesize\ttfamily \hyperlink{network_8h_a889f48bcec09c9d72a03648e911c5ff5}{linkmap} Network\+::links\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}\label{classNetwork_a1b7832bc2c7b8855cdc3b2d6329eff9d}} 
+\index{Network@{Network}!neurons@{neurons}}
+\index{neurons@{neurons}!Network@{Network}}
+\subsubsection{\texorpdfstring{neurons}{neurons}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{classNeuron}{Neuron}$>$ Network\+::neurons\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{network_8h}{network.\+h}\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{network_8cpp}{network.\+cpp}\end{DoxyCompactItemize}

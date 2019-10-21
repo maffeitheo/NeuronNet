@@ -1,0 +1,401 @@
+\hypertarget{classSimulation}{}\section{Simulation Class Reference}
+\label{classSimulation}\index{Simulation@{Simulation}}
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structSimulation_1_1intervalConstr}{interval\+Constr}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSimulation_a26f2ed7943035d802b1b2182ba04af12}{Simulation} (const int \+\_\+s, const int \+\_\+t, const double \+\_\+i=0.\+2)
+\item 
+\hyperlink{classSimulation_a2cc0f2dc7164778a64462d8b9ec5206d}{Simulation} (int, char $\ast$$\ast$)
+\item 
+void \hyperlink{classSimulation_acd6ce915b07465d9aaaa5fdcbb5ae077}{load\+\_\+configuration} (const std\+::string \&infile)
+\item 
+void \hyperlink{classSimulation_afc095e76c2bcee6d31a4614022d609c3}{parse\+\_\+types} (std\+::string)
+\item 
+size\+\_\+t \hyperlink{classSimulation_a7d0ca858dfec187001ecbab2081f9d04}{size\+\_\+type} (const std\+::string \&\+\_\+s) const
+\item 
+void \hyperlink{classSimulation_ae5c367f87c0b5dc9740bc6d00e44e72c}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSimulation_a8f71691f59f56fcb86fa49281c2841db}{parse} (int, char $\ast$$\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNetwork}{Network} \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}
+\item 
+int \hyperlink{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}{endtime}
+\item 
+size\+\_\+t \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}
+\item 
+double \hyperlink{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}{degree}
+\item 
+double \hyperlink{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}{thalam}
+\item 
+double \hyperlink{classSimulation_adfda098679d8fcb864ecd87409087d02}{streng}
+\item 
+double \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib}
+\item 
+std\+::string \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}
+\item 
+std\+::map$<$ std\+::string, size\+\_\+t $>$ \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the main class. It manages user inputs, defines the simulation parameters and constructs the \hyperlink{classNetwork}{Network} \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}. It then runs the simulation and prints the results to the output streams. These streams can be files with names based on the string \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output} with a suffix.
+
+\hyperlink{classSimulation}{Simulation} parameters\+:
+\begin{DoxyItemize}
+\item \hyperlink{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}{endtime} \+: total number of time-\/steps,
+\item \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size} \+: total number of neurons,
+\item \hyperlink{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}{degree} \+: average connectivity of a neuron,
+\item \hyperlink{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}{thalam} \+: st. dev. of thalamic input (for excitatory neurons),
+\item \hyperlink{classSimulation_adfda098679d8fcb864ecd87409087d02}{streng} \+: average intensity of connections,
+\item \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib} \+: fraction of inhibitory neurons in the network,
+\end{DoxyItemize}
+
+The map \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes} describes the neuron population\+: its keys are the neuron types from \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+::\+Neuron\+Types} and values are the corresponding counts. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSimulation_a26f2ed7943035d802b1b2182ba04af12}\label{classSimulation_a26f2ed7943035d802b1b2182ba04af12}} 
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{Simulation()}{Simulation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{const int}]{\+\_\+s,  }\item[{const int}]{\+\_\+t,  }\item[{const double}]{\+\_\+i = {\ttfamily 0.2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor initializes the following variables\+: 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+s} & (int)\+: size of network (number of neurons) \\
+\hline
+{\em \+\_\+t} & (int)\+: duration of simulation (number of time-\/steps) \\
+\hline
+{\em \+\_\+i} & (double)\+: fraction of inhibitory neurons in the network \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+32         : \hyperlink{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}{endtime}(\_t), \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}(\_s), \hyperlink{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}{degree}(\hyperlink{globals_8h_a3c5c899006fad97c90bca66b048c0d70}{\_DEGREE\_}), 
+      \hyperlink{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}{thalam}(\hyperlink{globals_8h_a4b57d5977068ad6d3ba5e97802c57410}{\_THALAM\_}), \hyperlink{classSimulation_adfda098679d8fcb864ecd87409087d02}{streng}(\hyperlink{globals_8h_ab582a09d695a9c431d8a1c7a0542c086}{\_STRENG\_}), \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib}(\_i) \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a2cc0f2dc7164778a64462d8b9ec5206d}\label{classSimulation_a2cc0f2dc7164778a64462d8b9ec5206d}} 
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{Simulation()}{Simulation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+Constructor based on user inputs, takes command-\/line arguments and passes them to \hyperlink{classSimulation_a8f71691f59f56fcb86fa49281c2841db}{parse}. 
+\begin{DoxyCode}
+5                                             \{
+6     \hyperlink{classSimulation_a8f71691f59f56fcb86fa49281c2841db}{parse}(argc, argv);
+7 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSimulation_acd6ce915b07465d9aaaa5fdcbb5ae077}\label{classSimulation_acd6ce915b07465d9aaaa5fdcbb5ae077}} 
+\index{Simulation@{Simulation}!load\+\_\+configuration@{load\+\_\+configuration}}
+\index{load\+\_\+configuration@{load\+\_\+configuration}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{load\+\_\+configuration()}{load\_configuration()}}
+{\footnotesize\ttfamily void Simulation\+::load\+\_\+configuration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{infile }\end{DoxyParamCaption})}
+
+Construct a network as specified in a configuration file 
+\begin{DoxyParams}{Parameters}
+{\em infile} & (string)\+: filename \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+82                                                            \{
+83     \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}.clear();
+84     std::vector<NeuronParams> neurons;
+85     std::vector<std::string> neurtyp;
+86     std::map<size\_t, size\_t> indexmap;
+87     \hyperlink{network_8h_a889f48bcec09c9d72a03648e911c5ff5}{linkmap} linklist;
+88     std::vector<double> npoten;
+89     \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size} = 0;
+90     \textcolor{keywordflow}{try} \{
+91         std::ifstream confstr(infile);
+92         std::string item, key, line;
+93         \textcolor{keywordtype}{double} value, poten;
+94         \textcolor{keywordtype}{size\_t} nindex;
+95         \hyperlink{structNeuronParams}{NeuronParams} nparams;
+96         \textcolor{keywordflow}{if} (confstr.is\_open()) \{
+97             \textcolor{keywordflow}{while} (std::getline(confstr, line)) \{
+98                 \textcolor{comment}{// This removes all spaces from the string}
+99                 line.erase(std::remove\_if(line.begin(), line.end(), isspace), line.end());
+100                 \textcolor{comment}{// comment lines start with #}
+101                 \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{'#'}) \textcolor{keywordflow}{continue};
+102                 std::stringstream ss(line);
+103                 std::getline(ss, item, \textcolor{charliteral}{';'});
+104                 key = item.substr(0, 4);
+105                 std::transform(key.begin(), key.end(), key.begin(), ::tolower);
+106                 \textcolor{keywordflow}{if} (key.compare(\textcolor{stringliteral}{"link"}) == 0) \{
+107                     \textcolor{keywordflow}{while} (std::getline(ss, item, \textcolor{charliteral}{';'})) \{
+108                         \textcolor{keywordtype}{size\_t} split = item.find(\textcolor{charliteral}{','}),
+109                             split2 = item.find(\textcolor{charliteral}{':'});
+110                         \textcolor{keywordtype}{size\_t} from = stoi(item.substr(0, split)), 
+111                             to = stoi(item.substr(split+1, split2));
+112                         \textcolor{keywordtype}{double} str = stod(item.substr(split2+1));
+113                         linklist.insert(\{\{from, to\}, str\});
+114                     \}
+115                 \} \textcolor{keywordflow}{else} \{
+116                     nindex = stoi(item);
+117                     std::getline(ss, item, \textcolor{charliteral}{';'});
+118                     nparams = \hyperlink{classNeuron_a4e5c4e0a512460dd59449a0bec4d0db7}{Neuron::type\_default}(item);
+119                     neurtyp.push\_back(item);
+120                     \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}[item]++;
+121                     poten = \hyperlink{globals_8h_aeef69e4cb5a7aa8b2dc851c334613c2e}{\_REST\_VAL\_};
+122                     \textcolor{keywordflow}{while} (std::getline(ss, item, \textcolor{charliteral}{';'})) \{
+123                         \textcolor{keywordtype}{size\_t} split = item.find(\textcolor{charliteral}{'='});
+124                         key = item.substr(0, split);
+125                         std::transform(key.begin(), key.end(), key.begin(), ::tolower);
+126                         value = stod(item.substr(split+1));
+127                         \textcolor{keywordflow}{if}      (key[0] == \textcolor{charliteral}{'a'}) nparams.\hyperlink{structNeuronParams_a359703733f5e70bbd67d019e45a3bc85}{a} = value;
+128                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (key[0] == \textcolor{charliteral}{'b'}) nparams.\hyperlink{structNeuronParams_abd1bd37179d8efa115a8749f9252f77d}{b} = value;
+129                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (key[0] == \textcolor{charliteral}{'c'}) nparams.\hyperlink{structNeuronParams_a5df2ced2526eb84af2c8d2d34d9bfd93}{c} = value;
+130                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (key[0] == \textcolor{charliteral}{'d'}) nparams.\hyperlink{structNeuronParams_af2bd3bad3bc5532186cdc8d056a10cfb}{d} = value;
+131                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (key[0] == \textcolor{charliteral}{'i'}) nparams.\hyperlink{structNeuronParams_a751856d77a821cbd361b774d8653bbe6}{inhib} = (value>0);
+132                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (key[0] == \textcolor{charliteral}{'v'}) poten = value;
+133                     \}
+134                     indexmap[nindex] = \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size};
+135                     neurons.push\_back(nparams);
+136                     npoten.push\_back(poten);
+137                     \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}++;
+138                 \}
+139             \}
+140             confstr.close();
+141         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{throw}(\hyperlink{classCFILE__ERROR}{CFILE\_ERROR}(\textcolor{stringliteral}{"Could not open configuration file "} + infile));
+142     \} \textcolor{keywordflow}{catch}(std::ifstream::failure &e) \{
+143         \textcolor{keywordflow}{throw}(\hyperlink{classCFILE__ERROR}{CFILE\_ERROR}(\textcolor{stringliteral}{"Error with configuration file "} + infile + \textcolor{stringliteral}{": "} + e.what()));
+144     \}
+145     \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}{resize}(\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}, \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib});
+146     \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_a40daf6578a6146f4c339f0efffd5070d}{set\_types\_params}(neurtyp, neurons);
+147     \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_a699416a6462f2da6a5f6cddb30f31440}{set\_values}(npoten);
+148     \textcolor{keywordflow}{if} (linklist.empty()) \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_a681d8f731ce258376a20f9bf062b943b}{random\_connect}(\hyperlink{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}{degree}, 
+      \hyperlink{classSimulation_adfda098679d8fcb864ecd87409087d02}{streng});
+149     \textcolor{keywordflow}{else} \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} I : linklist) 
+150              \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_a6ebe0899329973e4924997a25e205856}{add\_link}(indexmap[I.first.first], indexmap[I.first.second], I.second);
+151 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a8f71691f59f56fcb86fa49281c2841db}\label{classSimulation_a8f71691f59f56fcb86fa49281c2841db}} 
+\index{Simulation@{Simulation}!parse@{parse}}
+\index{parse@{parse}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily void Simulation\+::parse (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Uses \href{http://tclap.sourceforge.net/html/index.html}{\tt T\+C\+L\+AP} to parse user inputs. 
+\begin{DoxyCode}
+9                                             \{
+10     intervalConstr allowedProperty;
+11     TCLAP::CmdLine cmd(\hyperlink{globals_8h_a956c975dbd329dd2c44bf0707ec87928}{\_PRGRM\_TEXT\_});
+12     TCLAP::ValueArg<int> sizeArg(\textcolor{stringliteral}{"N"}, \textcolor{stringliteral}{"number"}, \hyperlink{globals_8h_ad6ed0803f0ba1dad283a5f8d223d0771}{\_SIZE\_TEXT\_}, \textcolor{keyword}{false}, 
+      \hyperlink{globals_8h_a9acff32baef7c1401d1e2166b0d999c2}{\_SIZE\_}, \textcolor{stringliteral}{"int"});
+13     cmd.add(sizeArg);
+14     TCLAP::ValueArg<int> timeArg(\textcolor{stringliteral}{"t"}, \textcolor{stringliteral}{"time"}, \hyperlink{globals_8h_a7fb73d75d8e6fe521bc287693f96dea2}{\_TIME\_TEXT\_},  \textcolor{keyword}{false}, 
+      \hyperlink{globals_8h_afd5f7c089a6bddd276552473544f977b}{\_TIME\_}, \textcolor{stringliteral}{"int"});
+15     cmd.add(timeArg);
+16     TCLAP::ValueArg<double> degreeArg(\textcolor{stringliteral}{"d"}, \textcolor{stringliteral}{"degree"}, \hyperlink{globals_8h_a974f4a347352636e3eff38fc6ed15f4e}{\_DEGREE\_TEXT\_},  \textcolor{keyword}{false}, 
+      \hyperlink{globals_8h_a3c5c899006fad97c90bca66b048c0d70}{\_DEGREE\_}, \textcolor{stringliteral}{"double"});
+17     cmd.add(degreeArg);
+18     TCLAP::ValueArg<double> inhibArg(\textcolor{stringliteral}{"i"}, \textcolor{stringliteral}{"inhibitory"}, \hyperlink{globals_8h_a6bb927b9932f49394eb6d0195160f6f8}{\_INHIB\_TEXT\_},  \textcolor{keyword}{false}, -1, &
+      allowedProperty);
+19     cmd.add(inhibArg);
+20     TCLAP::ValueArg<std::string> typesArg(\textcolor{stringliteral}{"T"}, \textcolor{stringliteral}{"neurontypes"}, \hyperlink{globals_8h_a4ff03ef95ba5d9b77316765cba4510a9}{\_TYPES\_TEXT\_},  \textcolor{keyword}{false}, \textcolor{stringliteral}{""}, \textcolor{stringliteral}{"string
+      "});
+21     cmd.add(typesArg);
+22     TCLAP::ValueArg<std::string> outputArg(\textcolor{stringliteral}{"o"}, \textcolor{stringliteral}{"output"}, \hyperlink{globals_8h_ab48fc9989ecb631747042d17b5cb0057}{\_OUTPUT\_TEXT\_},  \textcolor{keyword}{false}, \textcolor{stringliteral}{""}, \textcolor{stringliteral}{"string"})
+      ;
+23     cmd.add(outputArg);
+24     TCLAP::ValueArg<double> strengthArg(\textcolor{stringliteral}{"s"}, \textcolor{stringliteral}{"strength"}, \hyperlink{globals_8h_a5794ab1a7f457a36aa21f5313bf6d4d9}{\_STRENG\_TEXT\_},  \textcolor{keyword}{false}, 
+      \hyperlink{globals_8h_ab582a09d695a9c431d8a1c7a0542c086}{\_STRENG\_}, \textcolor{stringliteral}{"double"});
+25     cmd.add(strengthArg);
+26     TCLAP::ValueArg<double> thalamArg(\textcolor{stringliteral}{"n"}, \textcolor{stringliteral}{"thalamic"}, \hyperlink{globals_8h_a80eb37fbfc12b802cd576a7c270341a5}{\_THALAM\_TEXT\_},  \textcolor{keyword}{false}, 
+      \hyperlink{globals_8h_a4b57d5977068ad6d3ba5e97802c57410}{\_THALAM\_}, \textcolor{stringliteral}{"double"});
+27     cmd.add(thalamArg);
+28     TCLAP::ValueArg<std::string> cfile(\textcolor{stringliteral}{"c"}, \textcolor{stringliteral}{"config"}, \hyperlink{globals_8h_aba0c47a7a3365cac4542d0d4ffb5d165}{\_CFILE\_TEXT\_}, \textcolor{keyword}{false}, \textcolor{stringliteral}{""}, \textcolor{stringliteral}{"string"});
+29     cmd.add(cfile);
+30 
+31     cmd.parse(argc, argv);
+32 
+33     \hyperlink{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}{endtime} = timeArg.getValue();
+34     \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size} = sizeArg.getValue();
+35     \hyperlink{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}{degree} = degreeArg.getValue();
+36     \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output} = outputArg.getValue();
+37     \hyperlink{classSimulation_adfda098679d8fcb864ecd87409087d02}{streng} = strengthArg.getValue();
+38     \hyperlink{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}{thalam} = thalamArg.getValue();
+39     \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib} = inhibArg.getValue();
+40     \textcolor{keywordflow}{if} (inhib<=0. || inhib>1.) \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib} = \hyperlink{globals_8h_a44d0be2c42bc40fe1d6d0006ed762f6d}{\_PROP\_INHIB\_};
+41     std::string conf(cfile.getValue()), types(typesArg.getValue());
+42     \textcolor{keywordflow}{if} (conf.empty()) \{
+43         \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_ad91ae24f308dd2b46ff76396fcdb9765}{resize}(\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}, \hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib});
+44         \hyperlink{classSimulation_afc095e76c2bcee6d31a4614022d609c3}{parse\_types}(types);
+45     \} \textcolor{keywordflow}{else} \hyperlink{classSimulation_acd6ce915b07465d9aaaa5fdcbb5ae077}{load\_configuration}(conf);
+46 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_afc095e76c2bcee6d31a4614022d609c3}\label{classSimulation_afc095e76c2bcee6d31a4614022d609c3}} 
+\index{Simulation@{Simulation}!parse\+\_\+types@{parse\+\_\+types}}
+\index{parse\+\_\+types@{parse\+\_\+types}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{parse\+\_\+types()}{parse\_types()}}
+{\footnotesize\ttfamily void Simulation\+::parse\+\_\+types (\begin{DoxyParamCaption}\item[{std\+::string}]{types }\end{DoxyParamCaption})}
+
+Parses a string such as {\bfseries FS\+:0.\+2,IB\+:0.\+2,CH\+:0.\+15} and constructs the network accordingly (20\% of {\itshape FS} neurons, 20\% of {\itshape IB} and 15of {\itshape CH}). These neuron types are found in \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{Neuron\+::\+Neuron\+Types}. The neuron population is completed with default ({\itshape RS}) neurons and randomly connected with \hyperlink{classNetwork_a681d8f731ce258376a20f9bf062b943b}{Network\+::random\+\_\+connect}. 
+\begin{DoxyCode}
+48                                             \{
+49     \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}.clear();
+50     \textcolor{keywordflow}{if} (types.empty()) \{
+51         \textcolor{keywordtype}{size\_t} nfs(\hyperlink{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}{inhib}*\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}+0.5);
+52         \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}[\textcolor{stringliteral}{"FS"}] = nfs;
+53     \} \textcolor{keywordflow}{else} \{
+54         types.erase(std::remove\_if(types.begin(), types.end(), isspace), types.end());
+55         std::string label;
+56         std::stringstream ss(types);
+57         \textcolor{keywordtype}{size\_t} total = 0;
+58         \textcolor{keywordflow}{for} (std::string item; total<\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size} && std::getline(ss, item, \textcolor{charliteral}{','}); ) \{
+59             \textcolor{keywordtype}{size\_t} split = item.find(\textcolor{charliteral}{':'});
+60             label = item.substr(0, split);
+61             \textcolor{keywordtype}{double} prop = std::min(std::stod(item.substr(split+1)), 1.0);
+62             \textcolor{keywordflow}{if} (prop>0 && label!=\textcolor{stringliteral}{"RS"} && \hyperlink{classNeuron_a3a80c93e7cf5214b5e1a9925742bbe8e}{Neuron::type\_exists}(label)) \{
+63                 \textcolor{keywordtype}{size\_t} nums(prop*\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}+0.5);
+64                 \textcolor{keywordflow}{if} (total+nums>\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}) nums = \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}-total;
+65                 \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}[label] = nums;
+66                 total += nums;
+67             \}
+68         \}
+69     \}
+70     \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_ad1d20020028425cfab199da1942172c9}{set\_default\_params}(\hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes});
+71     \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_a681d8f731ce258376a20f9bf062b943b}{random\_connect}(\hyperlink{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}{degree}, \hyperlink{classSimulation_adfda098679d8fcb864ecd87409087d02}{streng});
+72 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_ae5c367f87c0b5dc9740bc6d00e44e72c}\label{classSimulation_ae5c367f87c0b5dc9740bc6d00e44e72c}} 
+\index{Simulation@{Simulation}!run@{run}}
+\index{run@{run}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Simulation\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The main operation of this class\+: runs the simulation through a loop with \hyperlink{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}{endtime} steps. Each iteration calls \hyperlink{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}{Network\+::step} with a random value of thalamic input (\hyperlink{classRandomNumbers_a4ef5917200da65aa267735d389bdf995}{Random\+Numbers\+::normal} distribution), then writes out the results. 
+\begin{DoxyCode}
+153                      \{
+154     std::ofstream outf(\hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}), outf2, outf3;
+155     \textcolor{keywordflow}{if} (\hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}.size() && outf.bad()) 
+156         \textcolor{keywordflow}{throw}(\hyperlink{classOUTPUT__ERROR}{OUTPUT\_ERROR}(std::string(\textcolor{stringliteral}{"Cannot write to file "})+
+      \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}));
+157     std::ostream *\_outf = &std::cout;
+158     \textcolor{keywordflow}{if} (outf.is\_open()) \_outf = &outf;
+159     \textcolor{keywordflow}{if} (\hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}.size()) \{
+160         outf2.open(\hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}+\textcolor{stringliteral}{"\_traj"});
+161         \textcolor{keywordflow}{if} (outf2.bad())
+162             \textcolor{keywordflow}{throw}(\hyperlink{classOUTPUT__ERROR}{OUTPUT\_ERROR}(std::string(\textcolor{stringliteral}{"Cannot write to file "})+
+      \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}+\textcolor{stringliteral}{"\_traj"}));
+163         outf3.open(\hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}+\textcolor{stringliteral}{"\_pars"});
+164         \textcolor{keywordflow}{if} (outf3.bad())
+165             \textcolor{keywordflow}{throw}(\hyperlink{classOUTPUT__ERROR}{OUTPUT\_ERROR}(std::string(\textcolor{stringliteral}{"Cannot write to file "})+
+      \hyperlink{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}{output}+\textcolor{stringliteral}{"\_pars"}));
+166     \}
+167     std::vector<double> thalinput(\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size});
+168     \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_afc43116eb2429aeec0f3c6a54d252142}{print\_params}(&outf3);
+169     \textcolor{keywordflow}{if} (outf3.is\_open()) outf3.close();
+170     \textcolor{keywordflow}{if} (outf2.is\_open()) \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_ab572dd33cb91d9f0aae89c4477809d26}{print\_head}(\hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}, &outf2);
+171     \textcolor{keywordtype}{int} time = 0;
+172     \textcolor{keywordflow}{while} (time<\hyperlink{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}{endtime}) \{
+173         \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG}->\hyperlink{classRandomNumbers_a4ef5917200da65aa267735d389bdf995}{normal}(thalinput, 0, \hyperlink{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}{thalam});
+174         std::set<size\_t> firs = \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_a53665a3a69e6ec894c313d0ce3fb7f34}{step}(thalinput);
+175         time++;
+176         (*\_outf) << time;
+177         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} nn=0; nn<\hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size}; nn++) (*\_outf) << \textcolor{stringliteral}{" "} << firs.count(nn);
+178         (*\_outf) << std::endl;
+179         \textcolor{keywordflow}{if} (outf2.is\_open()) \hyperlink{classSimulation_a980a224fe68945549f217067ffc74f7c}{net}.\hyperlink{classNetwork_ae460d31557bba058fdf66e4fe5feb801}{print\_traj}(time, \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}, &outf2);
+180     \}
+181     \textcolor{keywordflow}{if} (outf2.is\_open()) outf2.close();
+182     \textcolor{keywordflow}{if} (outf.is\_open()) outf.close();        
+183 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a7d0ca858dfec187001ecbab2081f9d04}\label{classSimulation_a7d0ca858dfec187001ecbab2081f9d04}} 
+\index{Simulation@{Simulation}!size\+\_\+type@{size\+\_\+type}}
+\index{size\+\_\+type@{size\+\_\+type}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{size\+\_\+type()}{size\_type()}}
+{\footnotesize\ttfamily size\+\_\+t Simulation\+::size\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+s }\end{DoxyParamCaption}) const}
+
+Returns the number of neurons of \hyperlink{classNeuron_ab4b47274e756b72923d2f8a9a5037d23}{type} \+\_\+s. 
+\begin{DoxyCode}
+74                                                       \{
+75     \textcolor{keywordflow}{if} (\hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}.count(\_s)) \textcolor{keywordflow}{return} \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}.at(\_s);
+76     \textcolor{keywordflow}{if} (\_s != \textcolor{stringliteral}{"RS"})       \textcolor{keywordflow}{return} 0;
+77     \textcolor{keywordtype}{size\_t} nrs = \hyperlink{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}{size};
+78     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} I : \hyperlink{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}{ntypes}) nrs -= I.second;
+79     \textcolor{keywordflow}{return} nrs;
+80 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}\label{classSimulation_ad0197878662d63d3ad1699aa7ffe01b2}} 
+\index{Simulation@{Simulation}!degree@{degree}}
+\index{degree@{degree}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{degree}{degree}}
+{\footnotesize\ttfamily double Simulation\+::degree\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}\label{classSimulation_ae57735a4ad942d9d217fb2235a644d1b}} 
+\index{Simulation@{Simulation}!endtime@{endtime}}
+\index{endtime@{endtime}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{endtime}{endtime}}
+{\footnotesize\ttfamily int Simulation\+::endtime\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}\label{classSimulation_a14c04fb020df35f875b1f5b2aab7a562}} 
+\index{Simulation@{Simulation}!inhib@{inhib}}
+\index{inhib@{inhib}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{inhib}{inhib}}
+{\footnotesize\ttfamily double Simulation\+::inhib\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_a980a224fe68945549f217067ffc74f7c}\label{classSimulation_a980a224fe68945549f217067ffc74f7c}} 
+\index{Simulation@{Simulation}!net@{net}}
+\index{net@{net}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{net}{net}}
+{\footnotesize\ttfamily \hyperlink{classNetwork}{Network} Simulation\+::net\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}\label{classSimulation_a445d67187d6cc08c4c098ca498ee87d7}} 
+\index{Simulation@{Simulation}!ntypes@{ntypes}}
+\index{ntypes@{ntypes}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{ntypes}{ntypes}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, size\+\_\+t $>$ Simulation\+::ntypes\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}\label{classSimulation_a9ad4c807c6ddf9066041f764f0ccb9dc}} 
+\index{Simulation@{Simulation}!output@{output}}
+\index{output@{output}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily std\+::string Simulation\+::output\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}\label{classSimulation_ae198f9ac020ed6bc6ebbd608ab3f959d}} 
+\index{Simulation@{Simulation}!size@{size}}
+\index{size@{size}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily size\+\_\+t Simulation\+::size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_adfda098679d8fcb864ecd87409087d02}\label{classSimulation_adfda098679d8fcb864ecd87409087d02}} 
+\index{Simulation@{Simulation}!streng@{streng}}
+\index{streng@{streng}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{streng}{streng}}
+{\footnotesize\ttfamily double Simulation\+::streng\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}\label{classSimulation_a7fca2f5f79a662f91736b0e5f30598c1}} 
+\index{Simulation@{Simulation}!thalam@{thalam}}
+\index{thalam@{thalam}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{thalam}{thalam}}
+{\footnotesize\ttfamily double Simulation\+::thalam\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{simulation_8h}{simulation.\+h}\item 
+/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/\hyperlink{simulation_8cpp}{simulation.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+/home/maffei/myfiles/Programmation/serie05/NeuronNet/build/CMakeFiles/rebuild_cache.dir
+/home/maffei/myfiles/Programmation/serie05/NeuronNet/build/CMakeFiles/test.dir
+/home/maffei/myfiles/Programmation/serie05/NeuronNet/build/CMakeFiles/doc.dir
+/home/maffei/myfiles/Programmation/serie05/NeuronNet/build/CMakeFiles/edit_cache.dir
+/home/maffei/myfiles/Programmation/serie05/NeuronNet/build/CMakeFiles/NeuronNet.dir
+/home/maffei/myfiles/Programmation/serie05/NeuronNet/build/CMakeFiles/testNeuronNet.dir

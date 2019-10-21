@@ -1,0 +1,49 @@
+\hypertarget{main_8cpp}{}\section{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/main.cpp File Reference}
+\label{main_8cpp}\index{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/main.\+cpp@{/home/maffei/myfiles/\+Programmation/serie05/\+Neuron\+Net/src/main.\+cpp}}
+{\ttfamily \#include \char`\"{}simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}random.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRandomNumbers}{Random\+Numbers} $\ast$ \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\+\_\+\+R\+NG}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+25                                 \{
+26     \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG} = \textcolor{keyword}{new} \hyperlink{classRandomNumbers}{RandomNumbers};
+27     \textcolor{keywordflow}{try} \{
+28         \hyperlink{classSimulation}{Simulation} Sim(argc, argv);
+29         Sim.run();
+30     \} \textcolor{keywordflow}{catch}(TCLAP::ArgException &e) \{
+31         \textcolor{keywordflow}{throw}(\hyperlink{classTCLAP__ERROR}{TCLAP\_ERROR}(\textcolor{stringliteral}{"Error: "} + e.error() + \textcolor{stringliteral}{" "} + e.argId()));
+32     \} \textcolor{keywordflow}{catch} (\hyperlink{classSimulError}{SimulError} &e) \{
+33         std::cerr << e.what() << std::endl;
+34         \textcolor{keywordflow}{return} e.\hyperlink{classSimulError_a34627c973b586c593d8ed0f7352bc401}{value}();
+35     \}
+36     \textcolor{keywordflow}{if} (\hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG}) \textcolor{keyword}{delete} \hyperlink{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}{\_RNG};
+37     \textcolor{keywordflow}{return} 0;
+38 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}\label{main_8cpp_ad20d7a8b3940b60cfd9cd7188fb503ea}} 
+\index{main.\+cpp@{main.\+cpp}!\+\_\+\+R\+NG@{\+\_\+\+R\+NG}}
+\index{\+\_\+\+R\+NG@{\+\_\+\+R\+NG}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{\+\_\+\+R\+NG}{\_RNG}}
+{\footnotesize\ttfamily \hyperlink{classRandomNumbers}{Random\+Numbers}$\ast$ \+\_\+\+R\+NG}
+
