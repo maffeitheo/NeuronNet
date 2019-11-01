@@ -160,7 +160,6 @@ std::vector<std::pair<size_t, double> > Network::neighbors(const size_t& n) cons
 
 std::set<size_t> Network::step(const std::vector<double>& thalamic_input) {
 	
-	double input_c;
 	double w;
 	std::set<size_t> indices_firing;
 	
@@ -176,34 +175,36 @@ std::set<size_t> Network::step(const std::vector<double>& thalamic_input) {
 	
 	for (size_t i(0); i < neurons.size(); ++i) {
 		
+		double input_f(0);
+		
+		if (neurons[i].is_inhibitory()) {
+				
+			w = 0.4;
+				
+			input_f = w * thalamic_input[i];
+				
+		} else {
+				
+			w = 1.0;
+				
+			input_f = w * thalamic_input[i];
+				
+		}
+		
 		std::vector<std::pair<size_t, double>> neightbors_i(neighbors(i));
 		
 		for (size_t k(0); k < neightbors_i.size(); ++k) {
-	
-			if (neurons[k].is_inhibitory()) {
-				
-				w = 0.4;
-				
-				input_c = w * thalamic_input[k];
-				
-			} else {
-				
-				w = 1.0;
-				
-				input_c = w * thalamic_input[k];
-				
-			}
 			
 			if (neurons[k].firing() and neurons[k].is_inhibitory()) {
-				input_c += neightbors_i[k].second;
+				input_f += neightbors_i[k].second;
 			}
 			
 			if (neurons[k].firing() and (not(neurons[k].is_inhibitory()))) {
-				input_c += 0.5 * neightbors_i[k].second;
+				input_f += + 0.5 * neightbors_i[k].second;
 			}	
 		}
 		
-		neurons[i].input(input_c);
+		neurons[i].input(input_f);
 		neurons[i].step();
 	}
 	
